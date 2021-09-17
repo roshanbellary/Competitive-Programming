@@ -1,3 +1,7 @@
+/*
+IZhO 2013 Day 1 Problem C Schools
+https://oj.uz/problem/view/IZhO13_school
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

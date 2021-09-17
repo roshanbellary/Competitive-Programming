@@ -1,3 +1,8 @@
+/*
+USACO 2018 US Open Contest, Platinum
+Problem 3. Disruption
+http://www.usaco.org/index.php?page=viewproblem2&cpid=842
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

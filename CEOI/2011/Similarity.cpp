@@ -1,3 +1,7 @@
+/*
+SZKOpul Task Similarity (sim)
+https://szkopul.edu.pl/problemset/problem/PCuJ6tMOmD2CMeBGIx-FKUKr/site/?key=statement
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

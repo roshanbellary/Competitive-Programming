@@ -1,3 +1,7 @@
+/*
+COCI 2014/2015 Contest 2 Problem 4 Bob
+https://oj.uz/problem/view/COCI14_bob
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

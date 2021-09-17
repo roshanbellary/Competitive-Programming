@@ -1,4 +1,8 @@
 //used IOI editorial to solve problem
+/*
+IOI 2014 C. Game
+https://contest.yandex.ru/ioi/contest/579/problems/C/?success=11544284#7/2014_07_23/stWJB8fh2J
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

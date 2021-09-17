@@ -1,3 +1,7 @@
+/*
+Baltic Olympiad in Informatics 2015 Day 1 Problem 3 Network
+https://oj.uz/problem/view/BOI15_net
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

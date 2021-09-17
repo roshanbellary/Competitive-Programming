@@ -1,5 +1,9 @@
 //Solved with help from editorial
-//Yandex grader is also kinda dumb
+//Yandex grader was having issues
+/*
+IOI 2010 Problem F. Traffic Congestion
+https://contest.yandex.ru/ioi/contest/570/problems/F/
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include "grader.h"

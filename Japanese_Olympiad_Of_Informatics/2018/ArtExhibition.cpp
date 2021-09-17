@@ -1,3 +1,7 @@
+/*
+The 17th Japanese Olympiad in Informatics (JOI 2017/2018) Final Round Problem 2 Art Exhibition
+https://oj.uz/problem/view/JOI18_art
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

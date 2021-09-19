@@ -1,3 +1,9 @@
+/*
+COCI '14 Contest 2 #5 Šuma
+https://dmoj.ca/problem/coci14c2p5
+I had to look at the editorial to reduce the time complexity from O(N^4) I didn't realize I 
+could use union find to reduce the complexity and get all of the test cases.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

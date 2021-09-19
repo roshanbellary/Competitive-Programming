@@ -1,3 +1,7 @@
+/*
+COCI '14 Contest 2 #5 Šuma
+https://dmoj.ca/problem/coci14c2p5
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

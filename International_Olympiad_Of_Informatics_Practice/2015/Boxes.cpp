@@ -1,4 +1,9 @@
-// Had to look at editorial in order to implement this solution
+/*
+IOI 2015 Boxes with souvenirs
+https://oj.uz/problem/view/IOI15_boxes
+I was unable to think of using a dp on the clockwise and counterclockwise movements since I 
+didn't realize how I could consider the full circle movement cases
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

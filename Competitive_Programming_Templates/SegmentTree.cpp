@@ -22,8 +22,9 @@ void update(int index, int L, int R, int item, int val){
    else if (L==R){
        st[index]=val;//if we are at index update its value
    }else{
-       update(index,L,(L+R)/2,item,val);//splits up range
-       update(index,(L+R)/2+1,R,item,val);//splits up range
+       update(2*index,L,(L+R)/2,item,val);//splits up range
+       update(2*index+1,(L+R)/2+1,R,item,val);//splits up range
+       st[index]=st[2*index]+st[2*index+1];
    }
 }
 void update(int item, int val){

@@ -1,3 +1,8 @@
+/*
+CEOI 2013 Day 1 Problem 1 Treasure
+https://oj.uz/problem/view/CEOI13_treasure2
+Cool problem that involved prefix sums
+*/
 #pragma GCC optimize("O2")
 #include <treasure.h>
 #include <bits/stdc++.h>

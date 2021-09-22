@@ -1,3 +1,8 @@
+/*
+IOI 2009 Day 1 Problem 4 Raisins
+https://oj.uz/problem/view/IOI09_raisins
+Cool dp problem!
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

@@ -1,6 +1,8 @@
 /*
 USACO 2019 January Contest, Platinum Problem 1. Redistricting
 http://usaco.org/index.php?page=viewproblem2&cpid=900
+It was initially hard for me to think about how I could store which positions were optimal 
+for the dp and I initially tried using segment trees.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

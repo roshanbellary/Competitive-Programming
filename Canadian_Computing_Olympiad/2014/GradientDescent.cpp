@@ -1,3 +1,8 @@
+/*
+CCO '18 P4 - Gradient Descent
+https://dmoj.ca/problem/cco18p4
+Cool problem with binary searches to find a median
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

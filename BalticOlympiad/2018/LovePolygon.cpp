@@ -2,7 +2,7 @@
 Baltic Olympiad in Informatics 2018 Open - day 1 Problem A Love Polygon
 https://boi18-day1-open.kattis.com/problems/lovepolygon
 I had to look at the editorial to see how to handle the case where you have a cycle along with 
-acylic trees connecting to the cycle. This problem was really hard for me to understand
+acyclic trees connecting to the cycle. This problem was really hard for me to understand
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

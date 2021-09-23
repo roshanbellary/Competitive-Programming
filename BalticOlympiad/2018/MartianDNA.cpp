@@ -1,3 +1,8 @@
+/*
+Baltic Olympiad in Informatics 2018 Open - day 1 Problem B Martian DNA
+https://boi18-day1-open.kattis.com/problems/martiandna
+Cool two pointers solution
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

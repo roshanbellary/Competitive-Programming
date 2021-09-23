@@ -1,3 +1,8 @@
+/*
+ IOI 2014 Practice Contest 1 Color Grid
+ https://www.hackerrank.com/contests/ioi-2014-practice-contest-1/challenges/color-grid-ioi14
+ I thought this problem was a little too easy
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

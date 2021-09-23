@@ -1,3 +1,9 @@
+/*
+Baltic Olympiad in Informatics 2018 Open - day 2 Problem C Paths
+The dp on the graph part was hard to think about. I took me a long time to realize that I could 
+bitmask dp on the colors that have been chosen and simulate the moving paths via recursion. 
+Super cool problem!
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

@@ -1,5 +1,10 @@
-//December 2014 Gold Contest Problem 1:Guard Mark
-//http://usaco.org/index.php?page=viewproblem2&cpid=494
+/*
+USACO 2014 December Contest, Gold Problem 1. Guard Mark
+http://usaco.org/index.php?page=viewproblem2&cpid=494
+Cool problem with sets. One thing that I struggled with here is deciding whether or not there's 
+a smart way to sort the cows to get the optimal sorting for strength and weight. I finally 
+settled on using dp after spending a long time working on small cases.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

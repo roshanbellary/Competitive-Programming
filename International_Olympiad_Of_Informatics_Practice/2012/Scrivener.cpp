@@ -1,4 +1,10 @@
-//IOI 2012 Scrivener https://contest.yandex.ru/ioi/contest/572/problems/C/
+/*
+IOI 2012 Problem C. Crayfish scrivener
+https://contest.yandex.ru/ioi/contest/572/problems/C/
+Had 4 out of 5 subtasks working but did not figure out subtask 5 because I didn't realize 
+binary lifting. I think I need more practice with binary lifting.Eventually had to look 
+at the Editorial.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

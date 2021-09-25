@@ -1,0 +1,20 @@
+//Notes from Algorithms Live! https://www.youtube.com/watch?v=kOfa6t8WnbI
+I) Binary lifting
+    A)Definition:Binary lifting uses jumps of 2^k to find parents of nodes
+    B)Uses a Nxlog2(N) table
+        1)table[k][i] -> means the 2^k parent of i
+        2)as 2^log2(N) is the largest jump that you can possibly have the size of our table must be Nxlog2(N)
+    C)Can build table statically or dynamically(ie not adding nodes or adding nodes)
+    D) Required functions
+        1)walk(i,k) <- jumps up tree by k edges from node i
+            a) represent k in binary then jump up by each of the 1's in the binary representation 😮
+            b) example: Say you had a node i and you wanted to jump up 5 edges
+                i) binary representation of 5 is 101 which means you first jump 2^2 then jump 2^0
+                ii) So we set i=table[2][i] then we set i=table[0][i] to get the 5th ancestor of i
+                iii) Since the binary representation of N has log2(N) digits then at a maximum we do log2(N) jumps meaning the time complexity of this operation
+                is log2(N)
+        2)lca(i,j) <- finds least common ancestor of i and j
+            a) first use walk function to set i and j to be the same depth(means that least common ancestor is same depth away from both nodes)
+            b) binary search for lca(for too large jumps the parents of the nodes of i and j are equal and for too small jumps the parents are not equal)
+                i) Jump too short of lca each time until you have no node that you can jump to that's too short
+                ii) Mathematically, what we're doing is calculating each binary digit of the jump to the lca 

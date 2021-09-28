@@ -1,3 +1,8 @@
+/*
+Baltic Olympiad in Informatics 2018 Open - practice session Problem B Citations
+https://boi18-practice-open.kattis.com/problems/citations
+It was hard for me to find how to do dp on trees to get the correct answer.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

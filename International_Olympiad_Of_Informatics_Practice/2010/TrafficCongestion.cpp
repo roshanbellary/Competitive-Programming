@@ -1,5 +1,3 @@
-//Solved with help from editorial
-//Yandex grader was having issues
 /*
 IOI 2010 Problem F. Traffic Congestion
 https://contest.yandex.ru/ioi/contest/570/problems/F/

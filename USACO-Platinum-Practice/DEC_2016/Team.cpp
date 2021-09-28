@@ -1,3 +1,8 @@
+/*
+USACO 2016 December Contest, Platinum Problem 2. Team Building
+http://www.usaco.org/index.php?page=viewproblem2&cpid=673
+DP transitions were hard to figure out until I realized that I can use prefix sums.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

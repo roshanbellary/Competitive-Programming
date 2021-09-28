@@ -1,6 +1,7 @@
 /*
 SZKOpul Task Similarity (sim)
 https://szkopul.edu.pl/problemset/problem/PCuJ6tMOmD2CMeBGIx-FKUKr/site/?key=statement
+Cool sweep problem.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

@@ -1,3 +1,8 @@
+/*
+Asia-Pacific Informatics Olympiad(APIO) 2007 MOBILE2 - Mobiles
+https://www.spoj.com/problems/MOBILE2/
+It was hard to figure out how to do the dp on trees
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

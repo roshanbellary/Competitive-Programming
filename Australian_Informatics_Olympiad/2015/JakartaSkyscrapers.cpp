@@ -1,3 +1,7 @@
+/*
+APIO 2015 Problem 2 Jakarta Skyscrapers
+https://oj.uz/problem/view/APIO15_skyscraper
+Related to square root decomposition? */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

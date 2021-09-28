@@ -3,6 +3,11 @@
 /*
 IOI 2010 Problem F. Traffic Congestion
 https://contest.yandex.ru/ioi/contest/570/problems/F/
+The yandex grader for this problem was rather confusing and a 
+lot of the time I spent trying to figure out why I was getting 
+runtime errors. It was hard for me since I couldn't progress 
+from the storing the max road information from another node.
+Had to look at Editorial eventually.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

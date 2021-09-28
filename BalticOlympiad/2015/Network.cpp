@@ -1,6 +1,7 @@
 /*
 Baltic Olympiad in Informatics 2015 Day 1 Problem 3 Network
 https://oj.uz/problem/view/BOI15_net
+Cool merge small to large problem. It took me a while to write the code for pairings.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

@@ -1,6 +1,8 @@
 /*
 The 17th Japanese Olympiad in Informatics (JOI 2017/2018) Final Round Problem 2 Art Exhibition
 https://oj.uz/problem/view/JOI18_art
+I kept on getting errors on the test cases even though it worked on the sample cases which 
+made it hard for me to understand where I was going wrong and debug. Had to look at Editorial.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

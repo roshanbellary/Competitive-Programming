@@ -1,3 +1,9 @@
+/*
+USACO 2016 February Contest, Platinum Problem 2. Fenced In
+http://www.usaco.org/index.php?page=viewproblem2&cpid=625
+Took me a while to figure out that I could take the entire row and column and optimally choose 
+how many to break the fences of to find the minimum value.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

@@ -1,6 +1,8 @@
 /*
 COCI 2014/2015 Contest 2 Problem 4 Bob
 https://oj.uz/problem/view/COCI14_bob
+I kept on trying to improve my TLE sol until I realized I could use dp to find rectangles. 
+Although I thought this problem was hard, I'm marking it easy in hindsight
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

@@ -1,3 +1,9 @@
+/*
+USACO 2019 February Contest, Platinum Problem 1. Cow Dating
+http://www.usaco.org/index.php?page=viewproblem2&cpid=924
+Cool two pointer method problem. It took me a lot of time figuring out the end condition to 
+stop adding on a new probability.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

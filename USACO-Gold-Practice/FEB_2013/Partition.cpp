@@ -1,3 +1,9 @@
+/*
+USACO 2013 February Contest, Gold Problem 1. Partitioning the Farm
+http://www.usaco.org/index.php?page=viewproblem2&cpid=247
+Solved with Editorial. Hard problem where I didn't figure out that I could just bitmask one side 
+of the grid then dp on the other side.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

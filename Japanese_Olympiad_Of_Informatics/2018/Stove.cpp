@@ -1,3 +1,8 @@
+/*
+The 17th Japanese Olympiad in Informatics Final Round Problem 1 
+https://oj.uz/problem/view/JOI18_stove
+Easy sort and sweep problem
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

@@ -1,3 +1,9 @@
+/*
+USACO 2019 US Open Contest, Platinum Problem 1. Tree Boxes
+http://usaco.org/index.php?page=viewproblem2&cpid=948
+I spent way too much time debugging this problem due to the weird interactive 
+part of it.
+*/
 #include "grader.h"
 #include <bits/stdc++.h>
 using namespace std;

@@ -1,3 +1,8 @@
+/*
+USACO 2016 January Contest, Platinum Problem 1. Fort Moo
+http://www.usaco.org/index.php?page=viewproblem2&cpid=600
+Liked this problem a lot!
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

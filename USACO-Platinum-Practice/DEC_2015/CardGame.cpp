@@ -1,3 +1,8 @@
+/*
+USACO 2015 December Contest, Platinum Problem 2. High Card Low Card (Platinum)
+http://www.usaco.org/index.php?page=viewproblem2&cpid=577
+Had to look at the editorial and found that I could use segment trees.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

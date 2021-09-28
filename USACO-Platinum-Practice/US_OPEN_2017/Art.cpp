@@ -1,3 +1,9 @@
+/*
+USACO 2017 US Open Contest, Platinum Problem 1. Modern Art
+http://www.usaco.org/index.php?page=viewproblem2&cpid=744
+Cool problem, the hard part was figuring out how to find the rectangles intersecting which I had to 
+use the editorial for.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

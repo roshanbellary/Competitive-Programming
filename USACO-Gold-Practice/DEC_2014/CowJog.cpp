@@ -1,3 +1,9 @@
+/*
+
+USACO 2014 December Contest, Gold Problem 3. Cow Jog
+http://www.usaco.org/index.php?page=viewproblem2&cpid=496
+Didn't find difficulty with this problem and found answer fairly easily.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

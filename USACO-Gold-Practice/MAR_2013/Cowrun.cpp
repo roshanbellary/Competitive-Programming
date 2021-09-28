@@ -1,3 +1,8 @@
+/*
+USACO 2013 March Contest, Gold Problem 1. The Cow Run
+http://www.usaco.org/index.php?page=viewproblem2&cpid=265
+Had done it before - redid it though.
+*/
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;

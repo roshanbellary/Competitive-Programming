@@ -1,3 +1,8 @@
+/*
+USACO 2015 December Contest, Platinum Problem 1. Max Flow
+http://www.usaco.org/index.php?page=viewproblem2&cpid=576
+Spent too much time debugging but overall I found the algorithm easily.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

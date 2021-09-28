@@ -1,3 +1,10 @@
+/*
+
+USACO 2017 December Contest, Platinum Problem 3. Greedy Gift Takers
+http://www.usaco.org/index.php?page=viewproblem2&cpid=770
+I originally tried using a fenwick tree then realized that I could just binary search and iterate 
+through.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

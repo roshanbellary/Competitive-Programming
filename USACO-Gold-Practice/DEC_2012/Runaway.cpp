@@ -2,6 +2,7 @@
 USACO 2012 December Contest, Gold
 Problem 3. Running Away From the Barn
 http://www.usaco.org/index.php?page=viewproblem2&cpid=213
+Cool problem about merging small to large!
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

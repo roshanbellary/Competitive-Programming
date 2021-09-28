@@ -1,3 +1,8 @@
+/*
+USACO 2016 December Contest, Platinum Problem 1. Lots of Triangles
+http://www.usaco.org/index.php?page=viewproblem2&cpid=672
+Hard problem and it took me a long time to see that I can find # of points underneath an edge.
+*/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

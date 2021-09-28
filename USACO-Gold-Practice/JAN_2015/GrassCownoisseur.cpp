@@ -1,7 +1,8 @@
 /*
 USACO 2015 January Contest, Gold Problem 3. Grass Cownoisseur
 http://usaco.org/index.php?page=viewproblem2&cpid=516
-Solved with Editorial It was hard to account for cycles that don't include vertex 1. 
+Solved with Editorial It was hard or atleast I din't know how to account for cycles that 
+don't include vertex 1. 
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

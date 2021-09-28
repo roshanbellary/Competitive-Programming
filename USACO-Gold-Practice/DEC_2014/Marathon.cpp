@@ -1,3 +1,8 @@
+/*
+USACO 2014 December Contest, Gold Problem 2. Marathon
+http://www.usaco.org/index.php?page=viewproblem2&cpid=495
+Segment Trees
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

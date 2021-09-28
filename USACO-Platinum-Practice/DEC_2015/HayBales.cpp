@@ -1,3 +1,10 @@
+/*
+USACO 2015 December Contest, Platinum Problem 3. Counting Haybales
+http://www.usaco.org/index.php?page=viewproblem2&cpid=578
+The problem used a concept which I don't currently understand called lazy propagation for the 
+cumulative sum updates. I had it working for regular sum and minimum queries but had to look 
+at the editorial to try to understand the cumulative sum queries.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

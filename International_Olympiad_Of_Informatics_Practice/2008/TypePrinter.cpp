@@ -1,3 +1,9 @@
+/*
+International Olympiad In Informatics 2008 Contest Day 1 – Type Printer
+https://contest.yandex.ru/ioi/contest/567/download/A/
+Took me a while to realize I could just use the longest word at the end and count edges 
+for the other words.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

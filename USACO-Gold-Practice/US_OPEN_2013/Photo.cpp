@@ -1,3 +1,8 @@
+/*
+USACO 2013 US Open, Gold Problem 1. Photo
+http://usaco.org/index.php?page=viewproblem2&cpid=285
+Hard problem which took me a while until I thought of using a deque with dp.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

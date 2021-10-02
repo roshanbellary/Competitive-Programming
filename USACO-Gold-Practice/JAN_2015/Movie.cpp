@@ -1,3 +1,9 @@
+/*
+USACO 2015 January Contest, Gold Problem 2. Moovie Mooving
+http://www.usaco.org/index.php?page=viewproblem2&cpid=515
+Cool bitmask dp! I think this was similar to a problem that I did before in the pset 
+which was why I found it easy to do.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

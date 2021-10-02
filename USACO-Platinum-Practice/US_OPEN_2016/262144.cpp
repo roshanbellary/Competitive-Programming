@@ -1,3 +1,9 @@
+
+/*
+USACO 2016 US Open Contest, Platinum Problem 1. 262144
+http://www.usaco.org/index.php?page=viewproblem2&cpid=648
+Cool dp problem it was initially hard for me to think of the transitions.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

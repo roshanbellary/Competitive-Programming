@@ -1,3 +1,10 @@
+/*
+USACO 2014 February Contest, Gold Problem 2. Cow Decathlon
+http://www.usaco.org/index.php?page=viewproblem2&cpid=401
+Part of the reason why I spent too much time on this problem was me misreading the question in 
+regards to the addition of goal points to the cows points. I was able to solve this problem 
+once I realized my misunderstanding.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

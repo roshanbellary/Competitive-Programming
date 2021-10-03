@@ -22,7 +22,7 @@ vector<int> coin_flips(vector<int> a, int p){
 	vector<int> r={p^v};
 	return r;
 }
-int find_coint(vector<int> a){
+int find_coin(vector<int> a){
 	int v = 0;
 	for (int i=0;i<64;i++) if (a[i]) v^=i;
 	return v;

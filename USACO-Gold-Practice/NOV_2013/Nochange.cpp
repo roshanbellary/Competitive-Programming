@@ -1,3 +1,9 @@
+/*
+USACO 2013 November Contest, Gold Problem 3. No Change
+http://www.usaco.org/index.php?page=viewproblem2&cpid=348
+Nice problem! I was able to realize that I could just binary search on the next index 
+of the number of interactions covered by the new added coin in the bitmask dp
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

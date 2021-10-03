@@ -1,5 +1,11 @@
 //had to use editorial to solve problem
 //very cool use of Xor that I didn't think of
+/*
+IOI 2017 Practice Tasks Coins
+https://dunjudge.me/analysis/problems/1663/
+I never thought I could use Xors to solve the problem. The process of encoding the information 
+in one more escaped me which is why I had to look at the editorial
+*/
 #pragma GCC optimize("O2")
 #include "coins.h"
 #include <bits/stdc++.h>

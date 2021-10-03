@@ -10,7 +10,7 @@ typedef long long ll;
 #define countbits __builtin_popcount
 #define beg0 __builtin_clz
 #define terminal0 __builtin_ctz
-#define mod 1e9+7
+int mod=1e9+7;
 void setIO(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);

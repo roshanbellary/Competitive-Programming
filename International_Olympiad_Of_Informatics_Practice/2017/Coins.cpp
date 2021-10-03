@@ -1,5 +1,3 @@
-//had to use editorial to solve problem
-//very cool use of Xor that I didn't think of
 /*
 IOI 2017 Practice Tasks Coins
 https://dunjudge.me/analysis/problems/1663/

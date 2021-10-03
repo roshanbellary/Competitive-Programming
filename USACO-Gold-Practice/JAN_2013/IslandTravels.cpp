@@ -1,3 +1,9 @@
+/*
+USACO 2013 January Contest, Gold Problem 2. Island Travels
+http://www.usaco.org/index.php?page=viewproblem2&cpid=230
+It took me a while to figure out that the bitmask dp could also have the last island visited 
+in order to do the overall dp. After realizing that I was able to solve the problem
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

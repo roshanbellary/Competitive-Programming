@@ -1,3 +1,8 @@
+/*
+International Olympiad In Informatics 2009 Contest Day 1 - POI
+https://contest.yandex.ru/ioi/contest/568/download/C/
+I was able to understand how to solve this problem quickly via sorting.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

@@ -1,3 +1,9 @@
+/*
+APIO 2019 Problem 3. ATM
+https://www.acmicpc.net/problem/4013
+Cool SCC problem! I had a bit of problem in regards to the dp part of finding the maximum value 
+of a path to a restaurant but I figured out that I could use topological sort too.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

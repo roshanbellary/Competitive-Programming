@@ -49,8 +49,7 @@ void constructSCC(){//Constructing SCC
 		if (!v2[order[i]]){
 			findComponents(order[i],col++);
 		}
-	}
-	
+	}	
 }
 void decompose(){//Decomposing the components of the SCC to create a DAG
 	for (int i=0;i<col;i++) nl.pb(set<int>());

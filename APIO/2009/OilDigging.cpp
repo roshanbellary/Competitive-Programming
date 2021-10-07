@@ -1,4 +1,8 @@
-//had to use editorial to solve problem
+/*
+APIO 2009 Problem 1 Oil Digging
+https://www.acmicpc.net/problem/4011
+Sweep Line problem - had to use editorial to solve problem since I did not know sweep line.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

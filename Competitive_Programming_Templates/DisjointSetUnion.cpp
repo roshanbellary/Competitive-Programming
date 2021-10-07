@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
-using namespace std; int N;
-vector<int> parent;
-vector<int> sizes;
+using namespace std; 
+const int MAXN=1e5;
+int N;
+int parent[MAXN];
+int sizes[MAXN];
 int findRoot(int i){// finds the root of the inputted node
     if (i==parent[i]) return i;
     else{
@@ -19,9 +21,9 @@ void unions(int a, int b){//alg for combining two sets together
 }
 int main(){
     cin >> N;
+    memset(sizes,sizeof(sizes),1);
     for (int i=0;i<N;i++){
-        parent.push_back(i);
-        sizes.push_back(1);
+        parent[i]=i;
     }
 
 }

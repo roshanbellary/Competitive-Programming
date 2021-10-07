@@ -20,14 +20,14 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-int N;
-vector<int> l[(int)1e5];//Adjacency List
-vector<int> b[(int)1e5];//Reverse Adjacency List
+const int MAXN=1e5;
+vector<int> l[MAXN];//Adjacency List
+vector<int> b[MAXN];//Reverse Adjacency List
 vector<set<int>> nl;
 vector<int> order;
-bool v[(int)1e5],v2[(int)1e5];
-int comp[(int)1e5];
-int col = 0;
+bool v[MAXN],v2[MAXN];
+int comp[MAXN];
+int col = 0,N;
 void reverseDFS(int i){//Topologically sorting vertices
 	v[i]=1;
 	for (int j:b[i]){
@@ -62,7 +62,7 @@ void decompose(){//Decomposing the components of the SCC to create a DAG
 	}
 }
 int main(){
-	setIO();cin >> N;
+	setIO(); cin >> N;
 	for (int i=0;i<N;i++){
 		int s,f; cin >> s >> f;
 		l[--s].pb(--f);b[f].pb(s);

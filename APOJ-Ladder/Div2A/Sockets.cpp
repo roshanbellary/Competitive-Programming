@@ -20,6 +20,14 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
+int N, M, K;int s[50];
 int main(){
-	setIO();
+	setIO();cin >> N >> M >> K;
+	for (int i=0;i<N;i++){cin >> s[i];s[i]--;}
+	sort(s,s+N);
+	int pos = N-1; int n = 0;
+	while (K<M && pos>=0){
+		K+=s[pos];n++;pos--;
+	}
+	cout << ((K<M)?"-1":to_string(n)) << "\n";
 }

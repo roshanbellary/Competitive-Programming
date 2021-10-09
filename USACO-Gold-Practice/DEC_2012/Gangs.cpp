@@ -1,3 +1,10 @@
+/*
+USACO 2012 December Contest, Gold Problem 1. Gangs of Instanbull/Cowstantinople
+http://usaco.org/index.php?page=viewproblem2&cpid=211
+Interesting recursion problem it took me some time to figure out how to reach O(N^3) while 
+printing out the lexographic order. The lexographic order part took me the most time to 
+figure out.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

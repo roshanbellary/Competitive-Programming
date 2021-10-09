@@ -1,4 +1,9 @@
-//Had to use editorial to solve problem based on solution
+/*
+USACO 2018 February Contest, Platinum Problem 2. New Barns
+http://usaco.org/index.php?page=viewproblem2&cpid=817
+Had to look at the Editorial. I reserached Centroid Decomposition as that 
+seems to be the main thing that I was missing for this problem.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

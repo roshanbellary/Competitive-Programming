@@ -1,3 +1,8 @@
+/*
+CEOI 2013 Day 2 Problem 1 Board
+https://oj.uz/problem/view/CEOI13_board
+I had a little difficulty with finding the recursive step of moving through the layers
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

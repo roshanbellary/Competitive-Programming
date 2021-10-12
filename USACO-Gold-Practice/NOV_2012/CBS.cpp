@@ -1,4 +1,9 @@
-//Had to use editorial to solve problem as I didn't understand how I could solve it in less than O(n^2)
+/*
+USACO 2012 November Contest, Gold Problem 2. Concurrently Balanced Strings
+http://usaco.org/index.php?page=viewproblem2&cpid=194
+Had to use editorial to solve problem as I didn't understand how I could solve it in less 
+than O(n^2)
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

@@ -1,3 +1,10 @@
+/*
+IOI 2010 Day 2 Problem 2 Traffic Congestion
+https://oj.uz/problem/view/IOI10_traffic
+I kept on making silly mistakes on this problem such as taking the maximum congestion instead of 
+the subtree population to calculate the congestion of a node. The fact that it was interactive 
+made it kinda hard to debug,
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include "traffic.h"

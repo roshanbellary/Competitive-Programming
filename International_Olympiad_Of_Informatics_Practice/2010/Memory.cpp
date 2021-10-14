@@ -1,3 +1,8 @@
+/*
+IOI 2010 Day 2 Problem 1 Memory
+https://oj.uz/problem/view/IOI10_memory
+This problem was surprisingly easy for an IOI problem.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include "grader.h"

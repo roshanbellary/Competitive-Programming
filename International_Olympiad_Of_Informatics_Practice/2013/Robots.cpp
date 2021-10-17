@@ -1,3 +1,10 @@
+/* 
+IOI 2013 Day 2 Problem 2 Robots
+https://oj.uz/problem/view/IOI13_robots
+I think I need to get used to using priority queues in order to solve these sorting and 
+searching problems, but I was finally able to solve robots as I figure out that I could use 
+2 priority queues
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

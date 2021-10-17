@@ -20,71 +20,39 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-int N; int c[(int)2e5+1];
 class Range{
 	public:	
-		int s,f;
-		bool t;
+		ll t,r;
 };
+int N;
+ll times[(int)2e5+1];
 vector<Range> r;
 bool sorts(Range &a, Range &b){
-	if (a.s==b.s){
-		if (!a.t){
+	if (a.t==b.t){
+		if (a.r==1&&b.r==-1){
 			return true;
-		}else if (!b.t){
+		}else{
 			return false;
 		}
 	}
-	return (a.s<=b.s);
+	return (a.t<b.t);
 }
-int main(){
+int32_t main(){
 	setIO();cin >> N;
 	for (int i=0;i<N;i++){
-		int s, f; cin >> s >> f;f+=s;
-		Range st; st.s=s;st.f=f; st.t=true;
-		Range fi; fi.s=f;fi.f=s; fi.t=false;
-		r.pb(st); r.pb(fi);
+		Range s; Range f;
+		ll a,b; cin >> a >> b;
+		s.t=a;f.t=a+b;s.r=1;f.r=-1;
+		r.pb(s);r.pb(f);
 	}
 	sort(r.begin(),r.end(),sorts);
-	multiset<pair<int,int>> m;
-	for (int i=0;i<r.size();i++){
-		if (r[i].t){
-			m.insert({r[i].f,r[i].s});
-		}else{
-			auto itr = m.upper_bound({r[i].s,0}); auto itr2=itr;
-			vector<int> val;
-			while (itr!=m.end()){
-				if (itr->first==r[i].s){
-					int diff = (r[i].s-itr->second);
-					val.pb(diff);
-				}else{
-					break;
-				}
-				itr++;
-			}
-			if (itr2!=itr) m.erase(itr2,itr);
-			sort(val.begin(),val.end(),greater<int>());
-			int col = 0;
-			for (int z=0;z<val.size();z++){
-				int j=z+1;
-				while (j<val.size()){
-					if (val[j]==val[z]){j++;}
-					else{
-						break;
-					}
-				}
-				if (j<val.size()){
-					c[m.size()-col]+=(val[z]-val[j]);
-					col+=(j-z);
-				}else{
-					c[m.size()-col]+=(val[z]);
-				}
-				z=j-1;
-			}
-		}
+	ll pt = 0,curr=0; memset(times,0,sizeof(times));
+	for (int i=0;i<r.size()-1;i++){
+		curr+=(r[i].r);
+		times[curr]+=(r[i+1].t-r[i].t);
 	}
-	for (int i=0;i<N;i++){
-		cout << c[i] << " ";
+	for (int i=1;i<=N;i++){
+		cout << times[i] << " ";
 	}
 	cout << "\n";
 }

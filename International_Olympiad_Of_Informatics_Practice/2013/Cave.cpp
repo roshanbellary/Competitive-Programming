@@ -1,4 +1,11 @@
-//Had to look at editorial to solve problem
+/* 
+IOI 2013 Day 2 Problem 1 Cave
+https://oj.uz/problem/view/IOI13_cave
+I didn't realize how to account for not knowing the states of the switches in an O(Nlog(N)) 
+solution. I realize now after reading the editorial that I can easily find the correct 
+state for a switch by setting the non found ones to a certain color and seeing if it opens 
+the door.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include "cave.h"

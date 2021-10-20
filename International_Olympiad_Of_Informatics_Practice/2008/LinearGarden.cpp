@@ -1,4 +1,9 @@
-//had to use editorial to solve problem
+/*
+IOI 2008 Day 2 Problem 4 Linear Garden
+https://oj.uz/problem/view/IOI08_linear_garden
+I had to use the editorial to solve the problem as I didn't know how to figure out the overall 
+position of the string in the balanced set. 
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

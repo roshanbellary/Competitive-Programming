@@ -1,16 +1,17 @@
 #include <bits/stdc++.h>
+#define ll long long
 using namespace std;
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    int N, X; cin >> N >> X;
-    int v[N]; int dp[N];
+    ll N, X; cin >> N >> X;
+    ll v[N]; ll dp[N];
     for (int i=0;i<N;i++){
         cin >> v[i];
         if (i==0) dp[0]=v[0];
         else dp[i]=dp[i-1]+v[i];
     }
-    set<int> sums;
+    set<ll> sums;
     sums.insert(0);
     int counts = 0;
     for (int i=0;i<N;i++){

@@ -1,5 +1,8 @@
-//Hard FFT Problem
-//https://www.spoj.com/problems/ADAMATCH/
+/*
+ADAMATCH - Ada and Nucleobase
+https://www.spoj.com/problems/ADAMATCH/
+Hard FFT Problem
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

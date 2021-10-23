@@ -1,4 +1,11 @@
-//Had to solve using editorial
+/*
+IOI 2010 Day 1 Task 3: Quality of Living
+https://oj.uz/problem/view/IOI10_quality
+I didn't realize that I could count the median just via sums where values greater than the 
+median are 1 and values less than the median are -1. I was able to understand that I could 
+binary search but my initial attempt at a solution was to use a fenwick tree and then binary 
+search for a value that is in the middle of an H*W grid
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

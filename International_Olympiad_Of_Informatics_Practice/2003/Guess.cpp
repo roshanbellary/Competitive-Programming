@@ -1,3 +1,8 @@
+/* 
+IOI 2003 D. Guess Which Cow
+https://contest.yandex.com/ioi/contest/558/problems/D/
+I was able to figure out the optimal way to choose which properties to examine first.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

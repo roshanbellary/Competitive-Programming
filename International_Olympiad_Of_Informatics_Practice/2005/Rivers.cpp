@@ -1,3 +1,9 @@
+/*
+IOI 2005 F. Rivers
+https://contest.yandex.com/ioi/contest/566/problems/F/
+This was a pretty hard dp on trees problem that took me a while to understand and solve. I did 
+finally get how to do the transitions
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

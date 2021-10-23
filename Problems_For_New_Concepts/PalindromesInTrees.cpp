@@ -1,3 +1,6 @@
+/*
+Centroid Decomposition Problem:https://codeforces.com/contest/914/problem/E
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -32,13 +35,11 @@ int dfssizes(int u,int p=-1){
       sizes[u]+=dfssizes(v,u);
   return sizes[u];
 }
-int dfsFC(int u,int r,int p=-1){
+int findCenter(int u,int r,int p=-1){
   for(int v:ad[u])
-    if(!vis[v] && v!=p)
-      {
-  if(sizes[v]>sizes[r]/2)
-    return dfsFC(v,r,u);
-      }
+    if(!vis[v] && v!=p){
+  		if(sizes[v]>sizes[r]/2) return findCenter(v,r,u);
+    }
   return u;
 }
 int cnt[N],val[L],tmp[N];
@@ -69,7 +70,7 @@ void dfs2(int u,int r,int par=-1){
     }
   res[u]+=dp[u];
 }
-void solve(int r,int sizesr){
+void solver(int r,int sizesr){
   H[r]=cpart=0;
   val[r]=(1<<(s[r-1]-'a'));
   dfs1(r,r);
@@ -104,12 +105,12 @@ void solve(int r,int sizesr){
   for (int i=1;i<=cpart;i++)
     for(int v1:parts[i]) cnt[val[v1]]--;
 }
-void dfsMCT(int u,int p=-1){
+void construct(int u,int p=-1){
   dfssizes(u);
-  int r=dfsFC(u,u);
-  par[r]=p; solve(r,sizes[u]); vis[r]=true;
+  int r=findCenter(u,u);
+  par[r]=p; solver(r,sizes[u]); vis[r]=true;
   for(int v:ad[r])
-    if(!vis[v]) dfsMCT(v,r);
+    if(!vis[v]) construct(v,r);
 }
 int main(){
   setIO();
@@ -118,7 +119,7 @@ int main(){
 	cin>>x>>y;
 	ad[x].pb(y); ad[y].pb(x);
   }
-  cin>>s;dfsMCT(1);
+  cin>>s;construct(1);
   for (int i=1;i<n;i++) cout<<res[i]+1<<" ";
   cout<<"\n";
 }

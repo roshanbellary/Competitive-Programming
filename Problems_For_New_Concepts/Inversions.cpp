@@ -1,8 +1,8 @@
-#pragma GCC optimize("O2")
 /*
 https://naipc16.kattis.com/problems/kinversions
 Cool FFT Problem
 */
+#pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;

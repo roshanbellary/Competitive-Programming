@@ -1,3 +1,9 @@
+/*
+USACO 2015 February Contest, Silver Problem 1. Censoring
+http://usaco.org/index.php?page=viewproblem2&cpid=529
+Hard problem for me initially as I was still learning hashing but once I figured out how to 
+store the resulting string and hash I understood how to solve it.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

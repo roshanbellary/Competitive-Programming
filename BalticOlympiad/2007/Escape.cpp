@@ -1,7 +1,7 @@
 /*
 BOI 2007 Escape P1
-Had to look at editorial to solve this problem with maximum flows
 https://cses.fi/file/e94ce10cb0896bc8ea40b85d6092e6e6a5cb763a81ce13f9e8cf7bafd6aeb690
+Had to look at editorial to solve this problem with maximum flows
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

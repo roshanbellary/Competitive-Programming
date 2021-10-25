@@ -1,3 +1,10 @@
+/*
+
+USACO 2015 February Contest, Gold Problem 2. Censoring (Gold)
+http://usaco.org/index.php?page=viewproblem2&cpid=533
+I've gotten the hang of hashing which helped a lot as I realized I could just iterate over 
+current lengths of query strings and see if the substring hash matches their hash.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

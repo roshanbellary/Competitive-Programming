@@ -1,5 +1,4 @@
 /*
-
 USACO 2015 February Contest, Gold Problem 2. Censoring (Gold)
 http://usaco.org/index.php?page=viewproblem2&cpid=533
 I've gotten the hang of hashing which helped a lot as I realized I could just iterate over 

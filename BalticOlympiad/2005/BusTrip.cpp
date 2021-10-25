@@ -1,3 +1,9 @@
+/*
+BOI 2005 Bus Trip (Estonia)
+https://cses.fi/file/586c813a34d9ed1ccc3d3fcf95712fc2a1fbba6a2d99dab14999113ce186ab5c
+I was able to figure out a way to bfs to solve the problem and find the minimum wait time 
+required.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

@@ -1,3 +1,4 @@
+//Made by Roshan Bellary
 //This particular implementation is a range sum query with value modification
 //This code is only for reference purposes. For a faster implementation of a range sum query with value modifications use Fenwick Trees.
 #include <bits/stdc++.h>

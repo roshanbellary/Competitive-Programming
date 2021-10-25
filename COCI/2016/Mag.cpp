@@ -1,4 +1,9 @@
-//Had to look at editorial to solve problem
+/* 
+COCI 2016/2017 Round #1, October 15th, 2016 Task Mag 
+https://oj.uz/problem/view/COCI16_mag
+I had a lot of trouble with figuring out the dp on trees way to solve this problem, so I finally 
+had to look at the editorial in order to understan the solution.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

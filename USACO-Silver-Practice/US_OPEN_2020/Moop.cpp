@@ -6,6 +6,7 @@ class Point{
 };
 vector<Point> g;
 bool sortx(Point &a, Point &b){
+    if (a.x==b.x) return a.y<b.y;
     return a.x<b.x;
 }
 int N;
@@ -21,17 +22,24 @@ int main(){
         g.push_back(store);
     }
     sort(g.begin(),g.end(),sortx);
-    vector<int> ys;
+    multiset<int> ys;
     for (int i=N-1;i>=0;i--){
-        if (ys.size()==0) ys.push_back(g[i].y);
-        else{
-            int a = 0;
-            int b = ys.size();
-            while (a!=b){
-                int mid = (a+b)/2;
-                if (ys[mid]>)
+        if (ys.size()==0){
+            ys.insert(g[i].y);
+            continue;
+        }else{
+            auto itr = ys.lower_bound(g[i].y);
+            if (itr==ys.end()){
+                ys.insert(g[i].y);
+            }else{
+                auto ender = ys.end();ender--;
+                if (itr==ender){
+                    continue;
+                }else{
+                    ys.erase(itr,ender);
+                }
             }
         }
     }
-    cout << ys.size();
+    cout << ys.size() << "\n";
 }

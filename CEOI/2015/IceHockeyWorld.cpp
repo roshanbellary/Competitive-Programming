@@ -1,3 +1,10 @@
+/*
+Problem: Central European Olympiad in Informatics 2015 Day 2 bobek
+Problem Link: https://oj.uz/problem/view/CEOI15_bobek
+Notes: It took me some time to realize that I could split up the values into two sets and use a 
+bitmask dp on them. Then I originally used a map and set to count values but I realized I could 
+just count the number of sets in O(N) after O(Nlog(N)) sorting.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

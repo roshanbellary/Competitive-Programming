@@ -88,15 +88,15 @@ int addVal(int x, int y, int n){
 int dx[4]={-1,1,0,0};
 int dy[4]={0,0,-1,1};
 void dfs(int x, int y, int n){
-	n=addVal(x,y,n);
-	if (dp[x][y][n]) return;
-	dp[x][y][n]=true;
 	if (tictac(n)) return;
 	for (int i=0;i<4;i++){
 		int nx = x+dx[i],ny=y+dy[i];
 		if (nx<0||ny<0||nx>=N||ny>=N) continue;
 		if (!grid[nx][ny].b){
-			dfs(nx,ny,n);
+			int nv = addVal(nx,ny,n);
+			if (!dp[nv][nx][ny]){
+				dp[nv][nx][ny]=true;dfs(nx,ny,nv);
+			}
 		}
 	}
 }
@@ -120,6 +120,7 @@ int main(){
 			}
 		}
 	}
+	dp[0][pos.first][pos.second]=true;
 	dfs(pos.first,pos.second,0);
 	int posw = 0;
 	for (int i=0;i<s;i++){

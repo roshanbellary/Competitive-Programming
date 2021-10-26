@@ -1,3 +1,9 @@
+/*
+Problem: BOI 2012 Day 1 Mobile
+Problem Link: https://oj.uz/problem/view/BOI12_mobile
+Notes: It took me a while to figure out that I could decompose the circles into segments and 
+binary search on the maximal radius.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

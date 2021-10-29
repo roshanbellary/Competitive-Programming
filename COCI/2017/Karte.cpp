@@ -1,3 +1,9 @@
+/*
+Problem: COCI 2017/2018 ROUND 5 January 20th Task: Karte
+Problem Link: https://oj.uz/problem/view/COCI18_karte
+Notes: I kept on running into some weird compiler error, but after some googling I was able to 
+resolve the error and finish the problem
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

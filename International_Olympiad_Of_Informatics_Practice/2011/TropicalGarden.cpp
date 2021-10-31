@@ -1,4 +1,10 @@
-//had to use editorial to sovle problem
+/*
+Problem: IOI 2011 Tropical Garden
+Problem Link: https://oj.uz/problem/view/IOI11_garden
+Notes: I didn't understand how I could account for going back then forwards ie going from 
+node 1 to node 0 then node 0 to node 1 then taking a path to node P, so I had to look at 
+the editorial to understand the solution.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include "garden.h"

@@ -1,3 +1,11 @@
+/*
+Problem: BOI 2013 Day 1 Pipes
+Problem Link: https://oj.uz/problem/view/BOI13_pipes
+Notes: This was a pretty hard problem for me especially since I initially didn't know how to 
+account for finding the solutions to odd length cycles, but I figured out that only one cycle 
+could possibly exist and that I could just use an alternating sum on the values of the 
+reservoirs to find the value of a pump.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

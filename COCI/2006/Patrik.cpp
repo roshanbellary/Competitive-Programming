@@ -1,3 +1,9 @@
+/*
+Problem: COI '06 #1 Patrik
+Problem Link: https://dmoj.ca/problem/coi06p1
+Notes: I made a pretty dumb mistake on this one and wasn't able to catch it initally by making 
+test cases.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

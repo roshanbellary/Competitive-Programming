@@ -1,3 +1,11 @@
+/*
+Problem: BOI 2011, day 1 Task D. Treasures and Vikings
+Problem Link: https://cses.fi/100/list/
+Notes: I spent a lot of time on this problem. For the thinking part, it took me a while to 
+realize that I could consider the distance from the viking ship to every square while for 
+the debugging part it took me way too long to realize that I swapped a .second with a .first 
+for a pair.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

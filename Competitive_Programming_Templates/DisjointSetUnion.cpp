@@ -24,7 +24,7 @@ int main(){
     cin >> N;
     memset(sizes,sizeof(sizes),1);
     for (int i=0;i<N;i++){
-        parent[i]=i;
+        parent[i]=i;sizes[i]=1;
     }
 
 }

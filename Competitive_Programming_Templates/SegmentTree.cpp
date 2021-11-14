@@ -3,7 +3,7 @@
 //This code is only for reference purposes. For a faster implementation of a range sum query with value modifications use Fenwick Trees.
 #include <bits/stdc++.h>
 using namespace std;
-const int MAXN = 100000;
+const int MAXN = 1e5;
 int st[4*MAXN];
 int v[MAXN];
 void build(int index, int L, int R){
@@ -16,7 +16,7 @@ void build(int index, int L, int R){
     }
 }
 void build(){
-    build(1,1,MAXN);
+    build(1,0,MAXN-1);
 }
 void update(int index, int L, int R, int item, int val){
    if ((item<L)||(item>R)) return;// checks to see if the changed index is within range if not then return
@@ -29,7 +29,7 @@ void update(int index, int L, int R, int item, int val){
    }
 }
 void update(int item, int val){
-    update(1,1,MAXN,item,val);
+    update(1,0,MAXN-1,item,val);
 }
 int query(int index, int L, int R, int ql, int qr){
     if ((R<ql)||(L>qr)) return 0;//checks to see if the query is partially contained within range if not then return
@@ -37,11 +37,12 @@ int query(int index, int L, int R, int ql, int qr){
     return (query(2*index,L,(L+R)/2,ql,qr)+query(2*index+1,(L+R)/2+1,R,ql,qr)); //splits up range into halves and calls query unction on both
 }
 int query(int ql, int qr){
-    return query(1,1,MAXN,ql,qr);
+    return query(1,0,MAXN-1,ql-1,qr-1);
 }
 int main(){
     for (int i=0;i<MAXN;i++){
         cin >> v[i];
     }
     build();
+    cout << query(1,3) << "\n";
 }

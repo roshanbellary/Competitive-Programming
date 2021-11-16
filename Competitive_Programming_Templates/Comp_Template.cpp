@@ -13,6 +13,24 @@ typedef long long ll;
 #define f first
 #define s second
 int mod=1e9+7;
+template <class T> 
+void rn(T &n){
+    n=0;int m = 1;int c;
+    c = getchar();if (c=='-') m=-1;
+    for (;c>47 && c<58;c=getchar()){
+        n=n*(1<<1)+n*(1<<3)+c-48;
+    }
+    n*=m;
+}
+void rw(string &w){
+    w="";char c=getchar();
+    while (c!=' '&&c!='\n'&&c!=EOF){
+        w+=c;c=getchar();
+    }
+}
+void rc(char &c){
+	c=getchar();
+}
 void setIO(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);

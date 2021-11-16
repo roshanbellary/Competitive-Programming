@@ -1,3 +1,9 @@
+/*
+Problem: BOI 2012, day 2 Fire
+Problem Link: https://cses.fi/99/list/
+Notes: Hard dp on trees problem as I found it difficult to figure out the recursion and state 
+information that can be useful for solving the problem.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

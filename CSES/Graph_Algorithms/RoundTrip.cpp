@@ -21,9 +21,45 @@ void setIO(string f){
 	setIO();
 }
 int N, M;
-vector<int> l[(int)1e5];
+vector<int> l[(int)2e5];
 bool v[(int)1e5];
+stack<int> ord;
+vector<int> route;
+bool cycle = false;
+void dfs(int i, int p){
+	if (cycle) return;
+	v[i]=true;ord.push(i);
+	for (int j:l[i]){
+		if (cycle) break;
+		if (j!=p){
+			if (v[j]){
+				cycle=true;
+				while (ord.top()!=j){
+					route.pb(ord.top());
+					ord.pop();
+				}
+				route.pb(ord.top());
+				ord.pop();
+				break;
+			}else{
+				dfs(j,i);
+			}
+		}
+	}
+}
 int main(){
 	setIO();
 	cin >> N >> M;
+	for (int i=0;i<M;i++){
+		int a, b; cin >> a >> b;
+		l[--a].pb(--b);
+		l[b].pb(a);
+	}
+	for (int i=0;i<N;i++){
+		if (!v[i]) dfs(i,i);
+	}
+	if (!cycle){cout << "IMPOSSIBLE\n";return 0;}
+	reverse(route.begin(),route.end());
+	cout << route.size()+1 << "\n";
+	for (int j:route){cout << j+1 << " ";} cout << route[0]+1 << "\n";
 }

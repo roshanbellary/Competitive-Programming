@@ -1,3 +1,9 @@
+/*
+Problem: IOI 2006 Valley Of Mexico
+Problem Link: https://contest.yandex.ru/ioi/contest/562/problems/D/
+Notes: This problem was hard for me as I couldn't figure out how I could construct the dp 
+solution and recursion.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

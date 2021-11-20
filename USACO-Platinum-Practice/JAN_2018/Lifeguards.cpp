@@ -1,4 +1,9 @@
-//had to use editorial to solve problem
+/*
+Problem: USACO 2018 January Contest, Platinum Problem 1. Lifeguards
+Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=792
+Notes: I didn't realize I could use two points along with dynamic programming to solve the 
+problem to make the unions of ranges.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

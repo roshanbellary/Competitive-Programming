@@ -1,4 +1,9 @@
-//had to use editorial to solve problem
+/*
+Problem: USACO 2019 January Contest, Platinum Problem 3. Train Tracking 2
+Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=902
+Notes: It was hard for me to figure out how to account for determining the locations where the 
+minimums could possibly occur which is why I had to look at the editorial.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

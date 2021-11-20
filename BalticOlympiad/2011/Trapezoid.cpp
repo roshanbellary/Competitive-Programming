@@ -1,4 +1,10 @@
-//had to use editorial to solve problem
+
+/*
+Problem: 19th Balkan Olympiad in Informatics Day 2 Trapezoid
+Problem Link: https://oj.uz/problem/view/balkan11_trapezoid
+Notes: This problem was hard for me as I didn't realize I could use 2 segment trees with the dp 
+to figure out the longest subset of trapezoids that works.
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>

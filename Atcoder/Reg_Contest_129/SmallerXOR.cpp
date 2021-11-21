@@ -1,9 +1,4 @@
 /*
-Problem: Smaller XOR
-Problem Link: 
-Notes: 
-*/
-/*
 Problem: Range Point Distance
 Problem Link: https://atcoder.jp/contests/arc129/tasks/arc129_a
 Notes: Check if ranges of [2^i, 2^(i+1)] partially or totally fit into the given range of [L,R] and subtract them

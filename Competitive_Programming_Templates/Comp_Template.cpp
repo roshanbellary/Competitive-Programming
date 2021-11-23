@@ -18,23 +18,45 @@ typedef long long ll;
 #define f first
 #define s second
 int mod=1e9+7;
-template <class T> 
-void rn(T &n){
-    n=0;int m=1,int c;c=getchar();if (c=='-') m=-1;
-    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+void rv(int &n){
+    n=0;int m=1;char c=getchar_unlocked();
+    if (c=='-'){m=-1; c=getchar_unlocked();}
+    for (;c>47 && c<58;c=getchar_unlocked()){n=n*(1<<1)+n*(1<<3)+c-48;}
     n*=m;
 }
-void rw(string &w){
-    w="";char c=getchar();
-    while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}
+void rv(ll &n){
+    n=0;int m=1;char c=getchar_unlocked();
+    if (c=='-'){m=-1; c=getchar_unlocked();}
+    for (;c>47 && c<58;c=getchar_unlocked()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
 }
-void rc(char &c){c=getchar();}
+void rv(double &n){
+    n=0;int m=1;char c=getchar_unlocked();
+    if (c=='-'){m=-1; c=getchar_unlocked();}
+    for (;c>47 && c<58;c=getchar_unlocked()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){
+        int p = -1;c=getchar_unlocked();
+        for (;c>47 && c<58;c=getchar_unlocked()){n+=((c-48)*(pow(10,p--)));}
+    }
+    n*=m;
+}
+void rv(float &n){
+    n=0;int m=1;char c=getchar_unlocked();
+    if (c=='-'){m=-1; c=getchar_unlocked();}
+    for (;c>47 && c<58;c=getchar_unlocked()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){
+        int p = -1;c=getchar_unlocked();
+        for (;c>47 && c<58;c=getchar_unlocked()){n+=((c-48)*(pow(10,p--)));}
+    }
+    n*=m;
+}
+void rv(string &w){
+    w="";char c=getchar_unlocked();
+    while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar_unlocked();}
+}
+void rv(char &c){c=getchar_unlocked();}
 template<typename T, typename ...Types>
-void rn(T &n, Types&&... args){rn(n);rn(args...);}
-template<typename T, typename ...Types>
-void rw(T &w,Types&&... args){rw(w);rw(args...);}
-template<typename T, typename ...Types>
-void rc(T &c,Types&&... args){rc(c);rc(args...);}
+void rv(T &n, Types&&... args){rv(n);rv(args...);}
 void setIO(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);

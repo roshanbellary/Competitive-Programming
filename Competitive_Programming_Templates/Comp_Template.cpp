@@ -35,8 +35,8 @@ void rv(double &n){
     if (c=='-'){m=-1; c=getchar_unlocked();}
     for (;c>47 && c<58;c=getchar_unlocked()){n=n*(1<<1)+n*(1<<3)+c-48;}
     if (c=='.'){
-        int p = -1;c=getchar_unlocked();
-        for (;c>47 && c<58;c=getchar_unlocked()){n+=((c-48)*(pow(10,p--)));}
+        double p = 0.1;c=getchar_unlocked();
+        for (;c>47 && c<58;c=getchar_unlocked()){n+=((c-48)*p);p/=10;}
     }
     n*=m;
 }
@@ -45,8 +45,8 @@ void rv(float &n){
     if (c=='-'){m=-1; c=getchar_unlocked();}
     for (;c>47 && c<58;c=getchar_unlocked()){n=n*(1<<1)+n*(1<<3)+c-48;}
     if (c=='.'){
-        int p = -1;c=getchar_unlocked();
-        for (;c>47 && c<58;c=getchar_unlocked()){n+=((c-48)*(pow(10,p--)));}
+        double p = 0.1;c=getchar_unlocked();
+        for (;c>47 && c<58;c=getchar_unlocked()){n+=((c-48)*p);p/=10;}
     }
     n*=m;
 }

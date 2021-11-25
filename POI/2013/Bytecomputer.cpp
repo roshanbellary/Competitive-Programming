@@ -1,5 +1,4 @@
 /*
-Problem: Bytecomputer
 Problem: Polish Olympiad 2013 Task: Byte Computer
 Link: https://szkopul.edu.pl/problemset/problem/i3cF1qQtiXwmwOc_5qRB0ufC/site/?key=statement
 Notes: Dp solution where we just store the minimum number of operations to get to a point

@@ -1,7 +1,7 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: Polycarp Recovers the Permutation
+Problem Link: https://codeforces.com/contest/1611/problem/C
+Notes: Simple construction problem
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

@@ -1,7 +1,7 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: Weights Assignment For Tree Edges
+Problem Link: https://codeforces.com/contest/1611/problem/D
+Notes: Simple construction problem where we space out edges by the difference in permutation positions
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

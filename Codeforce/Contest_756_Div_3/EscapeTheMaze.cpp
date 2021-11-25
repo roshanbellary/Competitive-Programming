@@ -1,7 +1,13 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: Escape The Maze (easy version)
+Problem Link: https://codeforces.com/contest/1611/problem/E1
+Notes: Just need to use a bfs to track min dist from the friends to the nodes of the tree
+and min distance from you to the nodes of the tree. If there exists a root whose distance from you to it is less than the distance from
+the friends to it then its possible to not get tagged by your friends.
+
+Proof:
+    Say that every path from that particular node to you has a point where a friends distance is less than your distance.
+    This is a contradiction as the friend can then take a shorter path to get to the root node invalidating the path.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

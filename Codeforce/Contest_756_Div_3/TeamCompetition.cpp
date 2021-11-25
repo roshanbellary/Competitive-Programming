@@ -1,7 +1,8 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: Team Composition: Programmers and Mathematicians
+Problem Link: https://codeforces.com/contest/1611/problem/B
+Notes: Took me more time than necessary to solve this problem  in contest so I need
+to practice this kind of time optimized solution probs
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

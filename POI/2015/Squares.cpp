@@ -1,5 +1,5 @@
 /*
-Problem: Squares
+Problem: POI 2015 Squares
 Problem Link: https://szkopul.edu.pl/problemset/problem/VeQ6A1Xb8DUSlbUb8eQncsFX/site/?key=statement
 Notes: Had to look at editorial to solve problem. Hard dp problem where it was difficult to figure out how the transitions happened and how to have
 an efficeint state to store information as 10^18 is a large number.

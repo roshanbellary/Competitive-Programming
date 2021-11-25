@@ -1,7 +1,8 @@
 /*
-Problem: Vode
+Problem: COCI 2017-2018 Round #4 Task: Vode
 Problem Link: https://oj.uz/problem/view/COCI17_vode
-Notes: Interesting DP Problem
+Notes: It was initally hard for to figure out the transitions for the dp but eventually I was 
+able to do it after some debugging.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

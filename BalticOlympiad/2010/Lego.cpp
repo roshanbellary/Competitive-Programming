@@ -1,5 +1,5 @@
 /*
-Problem: Baltic Olympiad 2010 Lego
+Problem: BOI 2010 Day 1 Lego
 Problem Link: https://cses.fi/105/list/
 Notes: Really hard dp problem as you have to combine the information of different states of 
 legos and find total combinations. Had to use editiorial  to solve problem.

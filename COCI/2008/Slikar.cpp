@@ -1,8 +1,9 @@
 /*
 Problem: Slikar
 Problem Link: https://dmoj.ca/problem/coci08c4p4
-Notes: Long dp problem involving minimization of different slices of the grid. In order to print out the optimal solution I just stored which pieces
-of a subgrid were colored in which way ie efficiently or all black or all white then constructed my solution from there.
+Notes: Long dp problem involving minimization of different slices of the grid. In order to print 
+out the optimal solution I just stored which pieces of a subgrid were colored in which way ie 
+efficiently or all black or all white then constructed my solution from there.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

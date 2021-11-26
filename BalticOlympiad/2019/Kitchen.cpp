@@ -1,7 +1,8 @@
 /*
-Problem: Kitchen
+Problem: Baltic Olympiad in Informatics 2019 Day 2 Problem 1 Kichen
 Problem Link: https://oj.uz/problem/view/BOI19_kitchen
-Notes: Cool dp problem
+Notes: Cool dp problem. Took me some time to realize that instead of using a bitmask to account 
+for subsets I could just remove or add a person depending on whether or not it was optimal.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

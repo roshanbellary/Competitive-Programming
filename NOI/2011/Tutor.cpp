@@ -1,5 +1,5 @@
 /*
-Problem: Tutor
+Problem: Singapore National Olympiad in Informatics Task 4: Tutor
 Problem Link: https://dunjudge.me/analysis/problems/26/
 Notes: DP Problem with weird states
 */

@@ -1,5 +1,5 @@
 /*
-Problem: Paint By Numbers
+Problem: IOI 2016 Day 2 Problem 1 Paint By Numbers
 Problem Link: https://oj.uz/problem/view/IOI16_paint
 Notes: Really hard dp problem, so I had to look at the editorial
 */

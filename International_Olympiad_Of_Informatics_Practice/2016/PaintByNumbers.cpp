@@ -1,7 +1,7 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: Paint By Numbers
+Problem Link: https://oj.uz/problem/view/IOI16_paint
+Notes: Really hard dp problem, so I had to look at the editorial
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

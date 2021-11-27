@@ -1,7 +1,9 @@
 /*
-Problem: Kaboom
+Problem: CENTRAL EUROPEAN OLYMPIAD IN INFORMATICS 2009 Kaboom
 Problem Link: https://wcipeg.com/problem/coci094p5
 Notes: Really hard dp problem. Made my transitions around the spirals that can be formed
+It took me a while to figure out the recursion of making the spirals on either side of the 
+stick and  checking to see if they intersect or not.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

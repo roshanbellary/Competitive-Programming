@@ -1,5 +1,5 @@
 /*
-Problem: Link
+Problem: CENTRAL EUROPEAN OLYMPIAD IN INFORMATICS 2006 Day 2 Link
 Problem Link: https://cses.fi/file/2a3333c827a59499bbbc1c16a74e8c8b29a5d1f3371bb088997da772dd1352d7
 Notes: Had to look at solution as I had no idea how to solve the cycle
 */

@@ -73,44 +73,36 @@ int main(){
 	setIO();cin >> a >> b;
     for (int i=0;i<a.length();i++) da[a[i]-'0']++;
     for (int i=0;i<b.length();i++) db[b[i]-'0']++;
-    for (int i=1;i<=5;i++){
-        bool u = 0;
+    bool f = 0;
+    for (int i=1;i<10;i++){
+        if (da[i]==0) continue;
         for (int j=10-i;j<10;j++){
-            while (da[i]>0 && db[j]>0){
-                u=1;
-                da[i]--;db[j]--;
-                ra+=to_string(i);rb+=to_string(j);
+            if (db[j]>0){
+                ra+=(i+'0');
+                rb+=(j+'0');
+                db[j]--;da[i]--;
+                f=1;break;
             }
         }
-        if (u){
-            while (db[9-i]>0 && da[i]>0){
-                da[i]--;db[9-i]--;
-                ra+=to_string(i);rb+=to_string(9-i);
-            }
-        }
+        if (f) break;
     }
-    for (int i=1;i<=5;i++){
-        bool u = 0;
-        for (int j=10-i;j<10;j++){
-            while (db[i]>0 && da[j]>0){
-                u=1;
-                db[i]--;da[j]--;
-                rb+=to_string(i);ra+=to_string(j);
+    for (int i=0;i<10;i++){
+        if (da[i]==0) continue;
+        for (int j=9-i;j<10;j++){
+            if (db[j]==0) continue;
+            while (db[j]>0 && da[i]>0){
+                ra+=(i+'0');rb+=(j+'0');
+                db[j]--;da[i]--;
             }
-        }
-        if (u){
-            while (da[9-i]>0 && db[i]>0){
-                db[i]--;da[9-i]--;
-                rb+=to_string(i);ra+=to_string(9-i);
-            }
+            break;
         }
     }
     for (int i=0;i<10;i++){
-        while (db[i]>0){
-            db[i]--;rb+=to_string(i);
-        }
         while (da[i]>0){
-            da[i]--;ra+=to_string(i);
+            ra+=(i+'0');da[i]--;
+        }
+        while (db[i]>0){
+            rb+=(i+'0');db[i]--;
         }
     }
     reverse(ra.begin(),ra.end());

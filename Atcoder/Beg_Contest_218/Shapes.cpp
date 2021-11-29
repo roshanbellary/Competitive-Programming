@@ -9,6 +9,8 @@ The hard part is actually coding the rotations.
 I took the middle of the grid as my origin for rotations(Note: the origin has different meanings of even grids and odd grids)
 from there I made the rotation transformation on the grid with respect to the origin then converted the resulting coordinates into 
 array indices and shifted the resulting figure to the upper left and compared the two figures.
+
+Additional Note: Problem is a pain in the ass to code
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

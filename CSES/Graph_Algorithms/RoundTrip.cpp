@@ -23,29 +23,26 @@ void setIO(string f){
 int N, M;
 vector<int> l[(int)2e5];
 bool v[(int)1e5];
+bool tv[(int)1e5];
 stack<int> ord;
 vector<int> route;
 bool cycle = false;
 void dfs(int i, int p){
 	if (cycle) return;
-	v[i]=true;ord.push(i);
+	v[i]=true;route.pb(i);tv[i]=1;
 	for (int j:l[i]){
 		if (cycle) break;
-		if (j!=p){
-			if (v[j]){
-				cycle=true;
-				while (ord.top()!=j){
-					route.pb(ord.top());
-					ord.pop();
-				}
-				route.pb(ord.top());
-				ord.pop();
-				break;
-			}else{
-				dfs(j,i);
-			}
+		if (j==p) continue;
+		if (!v[j]){
+			dfs(j,i);
+		}else{
+			route.pb(j);cycle=1;
+			break;
 		}
 	}
+	if (cycle) return;
+	v[i]=0;
+	route.pop_back();
 }
 int main(){
 	setIO();
@@ -56,10 +53,20 @@ int main(){
 		l[b].pb(a);
 	}
 	for (int i=0;i<N;i++){
-		if (!v[i]) dfs(i,i);
+		if (cycle) break;
+		if (!tv[i]){
+			route.clear();
+			dfs(i,i);
+		}
 	}
-	if (!cycle){cout << "IMPOSSIBLE\n";return 0;}
-	reverse(route.begin(),route.end());
-	cout << route.size()+1 << "\n";
-	for (int j:route){cout << j+1 << " ";} cout << route[0]+1 << "\n";
+	if (!cycle) cout << "IMPOSSIBLE\n";
+	int j = -1;
+	for (int i=route.size()-2;i>=0;i--){
+		if (route[i]==route.back()){j=i;break;}
+	}
+	cout << route.size()-j << "\n";
+	for (int i=j;i<route.size();i++){
+		cout << route[i]+1 << " ";
+	}
+	cout << "\n";
 }

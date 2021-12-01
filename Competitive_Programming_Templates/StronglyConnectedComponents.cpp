@@ -57,7 +57,7 @@ void decompose(){//Decomposing the components of the SCC to create a DAG
 	for (int i=0;i<N;i++){
 		for (int j:l[i]){
 			if (comp[i]!=comp[j]){
-				nl[i].insert(j);
+				nl[comp[i]].insert(comp[j]);
 			}
 		}
 	}

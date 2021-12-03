@@ -1,7 +1,9 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: COCI 2016/2017 Round #1 Problem 5 Kralj
+Problem Link: https://oj.uz/problem/view/COCI16_kralj
+Notes: Determining where to start moving around the circle was the hard part of this problem but 
+I was able to figure out this position by iterating about when the elves are distributed off 
+till they reach 1.
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

@@ -1,4 +1,3 @@
-#pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
@@ -29,6 +28,7 @@ class Square{
 };
 const int s = 3*3*3*3*3*3*3*3*3;
 bool dp[s][25][25];
+bool w[s];
 Square grid[25][25];
 int N;
 string convert(int n){
@@ -95,7 +95,7 @@ void dfs(int x, int y, int n){
 		if (!grid[nx][ny].b){
 			int nv = addVal(nx,ny,n);
 			if (!dp[nv][nx][ny]){
-				dp[nv][nx][ny]=true;dfs(nx,ny,nv);
+				w[nv]=1;dp[nv][nx][ny]=true;dfs(nx,ny,nv);
 			}
 		}
 	}
@@ -125,13 +125,7 @@ int main(){
 	int posw = 0;
 	for (int i=0;i<s;i++){
 		if (tictac(i)){
-			bool f = false;
-			for (int j=0;j<N;j++){
-				for (int z=0;z<N;z++){
-					if (dp[i][j][z]){posw++;f=true;break;}
-				}
-				if (f) break;
-			}
+			if (w[i]) posw++;
 		}
 	}
 	cout << posw << "\n";

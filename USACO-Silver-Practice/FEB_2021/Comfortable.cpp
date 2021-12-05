@@ -1,3 +1,8 @@
+/*
+Problem:Comfortable Cows 
+Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=1110
+Notes: 
+*/
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -10,7 +15,48 @@ typedef long long ll;
 #define countbits __builtin_popcount
 #define beg0 __builtin_clz
 #define terminal0 __builtin_ctz
-#define mod 1e9+7
+#define f first
+#define s second
+int mod=1e9+7;
+inline void rv(int &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(ll &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(double &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){
+        double p = 0.1;c=getchar();
+        for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}
+    }
+    n*=m;
+}
+inline void rv(float &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){
+        double p = 0.1;c=getchar();
+        for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}
+    }
+    n*=m;
+}
+inline void rv(string &w){
+    w="";char c=getchar();
+    while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}
+}
+inline void rv(char &c){c=getchar();}
+template<typename T, typename ...Types>
+void rv(T &n, Types&&... args){rv(n);rv(args...);}
 void setIO(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
@@ -20,50 +66,47 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-int N;
-int diffx[4] = {-1,1,0,0};
-int diffy[4] = {0,0,-1,1};
-bool g[2001][2001];
-int add = 0;
+const int MN = 2001;
+int N, g[MN][MN];
+int dx[4]={1,-1,0,0};
+int dy[4]={0,0,1,-1};
+int A = 0;
 queue<pair<int,int>> q;
-bool checkComfy(int x, int y){
-	int count = 0;
-	for (int i=0;i<4;i++){
-		if (g[x+diffx[i]][y+diffy[i]]) count++;
-	}
-	return (count==3);
+bool taken(int x, int y){
+	if (x<0||y<0||x>2000||y>2000) return 0;
+	return g[x][y];
 }
-void addSquares(int x, int y){
-	if (g[x][y]) return;
-	int count = 0, p=-1;
+bool comfy(int x, int y){
+	if (x<0||y<0||x>2000||y>2000) return false;
+	if (!g[x][y]) return false;
+	int c = 0;
+	int ind = -1;
 	for (int i=0;i<4;i++){
-		if (g[x+diffx[i]][y+diffy[i]]) count++;
-		else p=i;
+		if (taken(x+dx[i],y+dy[i])) c++;
+		else{
+			ind=i;
+		}
 	}
-	if (count==3){
-		q.push({x+diffx[p],y+diffy[p]});
-		g[x+diffx[p]][y+diffy[p]]=true;
-		add++;
-	}
+	if (c==3) q.push({x+dx[ind],y+dy[ind]});
+	return (c==3);
+}
+void satisfy(int x, int y){
+	if (taken(x,y)) return;
+	g[x][y]=1;A++;
+	comfy(x,y);
 	for (int i=0;i<4;i++){
-		if (checkComfy(x+diffx[i],y+diffy[i])) q.push({x+diffx[i],y+diffy[i]});
+		comfy(x+dx[i],y+dy[i]);
 	}
 }
 int main(){
-	setIO();
-	cin >> N;
-	vector<pair<int,int>> coord;
+	setIO();rv(N);
 	for (int i=0;i<N;i++){
-		int x, y; cin >> x >> y;
-		coord.pb({x+500,y+500});
-	}
-	for (int i=0;i<N;i++){
-		q.push({coord[i].first,coord[i].second});
-		g[coord[i].first][coord[i].second]=true;
+		int x, y; rv(x, y);A--;
+		q.push({x+500,y+500});
 		while (!q.empty()){
-			addSquares(q.front().first,q.front().second);
-			q.pop();
+			auto pt = q.front();q.pop();
+			satisfy(pt.f,pt.s);
 		}
-		cout << add << "\n";
+		cout << A << "\n";
 	}
 }

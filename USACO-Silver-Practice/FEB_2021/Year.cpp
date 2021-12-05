@@ -22,20 +22,33 @@ void setIO(string f){
 }
 int N, K;
 int t[65536];
+vector<ll> d;
 int main(){
 	setIO();
 	cin >> N >> K;
-	for (int i=0;i<N;i++){cin >> t[i];t[i]=(t[i]+11)/12;}
+	for (int i=0;i<N;i++){cin >> t[i];}
 	sort(t,t+N);
-	vector<int> d;
-	for (int i=0;i<N-1;i++){
-		d.pb(t[i+1]-t[i]);
+	ll p = -1,n = 0;
+	bool zero = 0;
+	for (int i=0;i<N;i++){
+		if (t[i]/12==p){if (zero) n+=12,zero=0;}
+		else if (t[i]/12==p+1){
+			if (t[i]%12==0) continue;
+			else{n+=12;p++;zero=0;}
+		}else{
+			d.pb(t[i]/12-p-1);p=t[i]/12;
+			if (t[i]%12!=0){
+				n+=12;zero=0;
+			}else{
+				zero=1;
+			}
+		}
 	}
-	sort(d.begin(),d.end(),greater<int>());
-	ll dist = 0;
-	for (int i=K-1;i<d.size();i++){
-		dist+=d[i]*12;
+	sort(d.begin(),d.end());
+	if (d.size()>=K){
+		for (int i=0;i<=d.size()-K;i++){
+			n+=12*d[i];
+		}
 	}
-	dist+=(K)*12;
-	cout << dist << "\n";
+	cout << n << "\n";
 }

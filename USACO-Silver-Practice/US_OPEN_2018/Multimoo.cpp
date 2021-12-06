@@ -1,7 +1,10 @@
 /*
 Problem: Multiplayer Moo
 Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=836
-Notes: Not complete yet. Haven't implemented compression of connected components part
+Notes:Super Freaking long problem. Main thing to realize here is that you 
+can think of the different connected components graphically. Draw edges between
+neighboring components and set the colors for how you will go across components and from there
+you can figure out the size of a component of 2 colors
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
@@ -67,68 +70,103 @@ void setIO(string f){
 	setIO();
 }
 const int MN = 250;
-int N, grid[MN][MN],sizes[MN][MN],S=0;
+int N, grid[MN][MN],sizes[MN][MN],comps[MN][MN],cc[62500],sc[62500],S=0,C=0;
 bool v[MN][MN];
 int dx[4]={1,-1,0,0};
 int dy[4]={0,0,1,-1};
 int comp1 = 0, comp2 = 0;
+set<int> l[62500],col[62500], dist;
 map<int,int> m;
-void dfs(int x, int y){
+map<int,pair<int,int>> fc;
+void clear(){for (int i=0;i<N;i++) for (int j=0;j<N;j++) v[i][j]=0;}
+void findSize(int x, int y){
     v[x][y]=1;S++;
     for (int i=0;i<4;i++){
         int nx = x+dx[i],ny=y+dy[i];
         if (nx<0||nx>=N||ny<0||ny>=N) continue;
         if (v[nx][ny]||grid[nx][ny]!=grid[x][y]) continue;
-        dfs(nx,ny);
+        findSize(nx,ny);
     }
 }
-void clear(){for (int i=0;i<N;i++) for (int j=0;j<N;j++) v[i][j]=0;}
-void setSize(int x, int y, int n){
-    v[x][y]=1;sizes[x][y]=n;
+void findSize(){
+    clear();
+    for (int i=0;i<N;i++){
+        for (int j=0;j<N;j++){
+            if (!v[i][j]){
+                S=0;findSize(i,j);
+                sizes[i][j]=S;
+                comp1=max(comp1,S);
+            }
+        }
+    }
+}
+void setComps(int x, int y, int c){
+    v[x][y]=1;comps[x][y]=c;
     for (int i=0;i<4;i++){
         int nx = x+dx[i],ny=y+dy[i];
         if (nx<0||nx>=N||ny<0||ny>=N) continue;
         if (v[nx][ny]||grid[nx][ny]!=grid[x][y]) continue;
-        setSize(nx,ny,n);
+        setComps(nx,ny,c);
     }
 }
-void findSize2(int x, int y){
-    v[x][y]=1;
-    for (int i=0;i<4;i++){
-        int nx = x+dx[i],ny=y+dy[i];
-        if (nx<0||nx>=N||ny<0||ny>=N) continue;
-        if (grid[nx][ny]!=grid[x][y]){m[grid[nx][ny]]+=sizes[nx][ny];comp2=max(m[grid[nx][ny]]+sizes[x][y],comp2);}
-        else if (!v[nx][ny]) findSize2(nx,ny);
-    }
-}
-int main(){
-	setIO();rv(N);
-    for (int i=0;i<N;i++) for (int j=0;j<N;j++) rv(grid[i][j]);
-    for (int i=0;i<N;i++){
-        for (int j=0;j<N;j++){
-            if (!v[i][j]){
-                S=0;dfs(i,j);
-                sizes[i][j]=S;
-            }
-        }
-    }
+void mapComps(){
     clear();
     for (int i=0;i<N;i++){
         for (int j=0;j<N;j++){
             if (sizes[i][j]>0){
-                comp1=max(comp1,sizes[i][j]);
-                setSize(i,j,sizes[i][j]);
+                fc[C]={i,j};sc[C]=sizes[i][j];
+                cc[C]=grid[i][j];setComps(i,j,C++);
             }
         }
     }
+}
+void setList(int x, int y, int c){
+    v[x][y]=1;
+    for (int i=0;i<4;i++){
+        int nx = x+dx[i],ny=y+dy[i];
+        if (nx<0||nx>=N||ny<0||ny>=N) continue;
+        if (grid[nx][ny]!=grid[x][y]){
+            l[c].insert(comps[nx][ny]);
+            col[c].insert(cc[comps[nx][ny]]);
+        }else if (!v[nx][ny]){
+            setList(nx,ny,c);
+        }
+    }
+}
+void setList(){
     clear();
     for (int i=0;i<N;i++){
         for (int j=0;j<N;j++){
-            if (!v[i][j]){
-                m.clear();
-                findSize2(i,j);
+            if (sizes[i][j]>0){
+                setList(i,j,comps[i][j]);
             }
         }
     }
-    cout << comp1 << " " << comp2 << "\n";
+}
+void findcols(int i, int c1, int c2){
+    dist.insert(i);
+    for (int j:l[i]){
+        if (dist.find(j)!=dist.end()) continue;
+        if (cc[j]==c1 || cc[j]==c2){
+            findcols(j,c1,c2);
+        }
+    }
+}
+void calcComp2(){
+    for (int i=0;i<C;i++){
+        for (int c:col[i]){
+            dist.clear();
+            findcols(i,cc[i],c);
+            int sizec = 0;
+            for (int k:dist){sizec+=sc[k];}
+            comp2=max(comp2,sizec);
+        }
+    }
+}
+int main(){
+	setIO("multimoo");rv(N);
+    for (int i=0;i<N;i++) for (int j=0;j<N;j++) rv(grid[i][j]);
+    findSize();mapComps();
+    setList();calcComp2();
+    cout << comp1 << "\n" << comp2 << "\n";
 }

@@ -1,3 +1,26 @@
 # USACO-Silver-Practice
 
- The solutions to some previous USACO silver problems I've come across. Some of these solutions are incomplete and as USACO season comes along I'm going to try to grind and finish more problems
+Current List of Incomplete Problems(Has not been fully update):
+
+Usaco 2019 December
+-Meetings
+
+USACO 2019 US Open
+-Left Out
+-Cow Steeplechase II
+
+USACO 2019 January Contest
+-Mountain View
+
+USACO 2018 US Open Contest
+-Out of Sorts
+
+USACO 2018 February Contest
+-Teleportation
+
+USACO 2018 January Contest
+-Rental Service
+
+USACO 2017 US Open Contest
+-Where's Bessie?
+

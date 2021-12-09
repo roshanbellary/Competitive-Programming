@@ -1,6 +1,6 @@
 # USACO-Silver-Practice
 
-Current List of Incomplete Problems(Has not been fully update):
+Current List of Incomplete Problems(Has not been fully updated):
 
 Usaco 2019 December
 -Meetings

@@ -9,9 +9,6 @@ USACO 2019 US Open
 -Left Out
 -Cow Steeplechase II
 
-USACO 2019 January Contest
--Mountain View
-
 USACO 2018 US Open Contest
 -Out of Sorts
 

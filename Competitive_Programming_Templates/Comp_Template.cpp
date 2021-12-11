@@ -19,41 +19,28 @@ typedef long long ll;
 #define s second
 int mod=1e9+7;
 inline void rv(int &n){
-    n=0;int m=1;char c=getchar();
-    if (c=='-'){m=-1; c=getchar();}
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
     for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
     n*=m;
 }
 inline void rv(ll &n){
-    n=0;int m=1;char c=getchar();
-    if (c=='-'){m=-1; c=getchar();}
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
     for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
     n*=m;
 }
 inline void rv(double &n){
     n=0;int m=1;char c=getchar();
-    if (c=='-'){m=-1; c=getchar();}
-    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
-    if (c=='.'){
-        double p = 0.1;c=getchar();
-        for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}
-    }
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
     n*=m;
 }
 inline void rv(float &n){
     n=0;int m=1;char c=getchar();
-    if (c=='-'){m=-1; c=getchar();}
-    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
-    if (c=='.'){
-        double p = 0.1;c=getchar();
-        for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}
-    }
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
     n*=m;
 }
-inline void rv(string &w){
-    w="";char c=getchar();
-    while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}
-}
+inline void rv(string &w){w="";char c=getchar();while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}}
 inline void rv(char &c){c=getchar();}
 template<typename T, typename ...Types>
 void rv(T &n, Types&&... args){rv(n);rv(args...);}

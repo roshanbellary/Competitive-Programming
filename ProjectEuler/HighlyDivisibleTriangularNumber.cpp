@@ -1,6 +1,6 @@
 /*
-Problem: Largest product in a grid
-Problem Link: https://projecteuler.net/problem=11
+Problem: Highly divisible triangular number
+Problem Link: https://projecteuler.net/problem=12
 Notes: 
 */
 #pragma GCC optimize("O2")
@@ -53,23 +53,26 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-const int N = 20;
-int grid[N][N], res = 0;
-pair<int,int> dir[8]={{0,1},{0,-1},{-1,0},{1,0},{1,1},{-1,-1},{-1,1},{1,-1}};
-void checkdirs(int x, int y){
-    for (int i=0;i<8;i++){
-        int prod = 1;
-        for (int j=0;j<4;j++){
-            int nx = dir[i].f*j+x, ny = dir[i].s*j+y;
-            if (nx<0||nx>=N||ny<0||ny>=N){prod=0;break;}
-            prod*=grid[nx][ny];
+ll divn(ll n){
+    ll prod = 1, curr = 0;
+    for (ll i=2;i<=sqrt(n);i++){
+        if (n%i==0){
+            while (n%i==0){
+                curr++;n/=i;
+            }
+            prod*=(++curr);curr=0;
         }
-        res=max(res,prod);
     }
+    if (n>1) prod*=2;
+    return prod;
 }
+ll N = 1;
 int main(){
-	setIO("grid");
-    for (int i=0;i<N;i++) for (int j=0;j<N;j++) cin >> grid[i][j];
-    for (int i=0;i<N;i++) for (int j=0;j<N;j++) checkdirs(i,j);
-    cout << res << "\n";
+	setIO();
+    while (true){
+        if (divn((N*(N+1))/2)>500){
+            cout << (N*(N+1))/2 << "\n";
+            break;
+        }else N++;
+    }
 }

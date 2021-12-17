@@ -67,20 +67,49 @@ void setIO(string f){
 	setIO();
 }
 struct Edge{
-    int a, b, c;
+    ll a, b, c;
 };
-int N, M, d[2500];
+ll N, M, d[2500];
 vector<Edge> l;
+vector<pair<ll,ll>> li[2500];
+stack<int> ind;
+bool cyc = 0, fo = 0,vi[2500];
+vector<int> res;
+void dfs(int i, ll dist){
+    if (fo) return;
+    if (!vi[i]) vi[i]=1,d[i]=dist,ind.push(i);
+    else if (dist<d[i]){
+        fo = 1;res.pb(i);
+        while (!ind.empty()){
+            res.pb(ind.top());
+            if (ind.top()==i) break;
+            ind.pop();
+        }
+        return;
+    }else{
+        return;
+    }
+    for (auto &e:li[i]){
+        if (fo) return;
+        dfs(e.f,dist+e.s);
+    }
+    ind.pop();
+}
 int main(){
 	setIO();rv(N, M);
-    for (int i=0;i<M;i++){
-        int a, b, c; rv(a,b,c);a--;b--;
+    for (ll i=0;i<M;i++){
+        ll a, b, c; rv(a,b,c);a--;b--;
         l.pb({a,b,c});
+        li[a].pb({b,c});
     }
-    int st = N;
-    while (st--){
-        for (auto &a:l){
-            
-        }
-    }
+    memset(d,0,sizeof(d));
+    ll st = N-1, v = -1;
+    while (st--) for (auto &a:l) d[a.b]=min(d[a.a]+a.c,d[a.c]);
+    for (auto &a:l) if (d[a.b]>d[a.a]+a.c){cyc = 1,v=a.b;break;}
+    if (!cyc){cout << "NO\n";return 0;}
+    for (int i=0;i<N;i++) d[i]=0;
+    cout << "YES\n";
+    dfs(v,0);reverse(res.begin(),res.end());
+    for (int j:res) cout << j+1 << " ";
+    cout << "\n";
 }

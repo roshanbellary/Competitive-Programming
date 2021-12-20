@@ -1,7 +1,5 @@
 # CSES
-solutions to the CSES problems on https://cses.fi/
-
-Solutions to the CSES problems. Grouped by Category and Name
+Solutions to the CSES problems on https://cses.fi/. Grouped by Category and Name
 
 - [x] Introductory Problems
 - [x] Sorting and Searching

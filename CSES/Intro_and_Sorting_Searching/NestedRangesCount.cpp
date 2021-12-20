@@ -1,6 +1,6 @@
 /*
-Problem: Nested Ranges Check
-Problem Link: https://cses.fi/problemset/task/2168
+Problem: Nested Ranges Count
+Problem Link: https://cses.fi/problemset/task/2169/
 Notes: 
 */
 #pragma GCC optimize("O2")
@@ -8,7 +8,7 @@ Notes:
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
 using namespace __gnu_pbds;
-typedef tree<int,null_type,less_equal<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef tree<pair<int,int>,null_type,less_equal<pair<int,int>>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
 typedef long long ll;
 #define pb push_back
 #define eb emplace_back
@@ -64,25 +64,24 @@ const int MN = 2e5;
 int N;
 vector<Range> st;
 indexed_set m;
-bool cover[MN],coverer[MN];
-void calcContainer(){
+int cover[MN],coverer[MN];
+void calcContained(){
     sort(st.begin(),st.end(),sorts);
-    multiset<pair<int,int>> m;
-    multiset<pair<int,int>> m2;
     for (int i=0;i<st.size();i++){
-        auto itr = m.lower_bound({st[i].f,-1});
-        auto itr3 = m2.lower_bound({st[i].f,-1});
-        if (itr3!=m2.end()) cover[st[i].ind]=1;
-        if (itr!=m.end()){
-            auto itr2 = itr;
-            while (itr!=m.end()){
-                coverer[itr->second]=1;
-                itr++;
-            }
-            m.erase(itr2,itr);
-        }
+        int num = m.order_of_key({st[i].f,-1});
+        cover[st[i].ind]=m.size()-num;
         m.insert({st[i].f,st[i].ind});
-        m2.insert({st[i].f,st[i].ind});
+    }
+}
+void calcContainer(){
+    m.clear();
+    for (int i=0;i<st.size();i++){
+        int num = m.order_of_key({st[i].f,1e9});
+        coverer[st[i].ind]-=num;
+        m.insert({st[i].f,st[i].ind});
+    }
+    for (int i=0;i<st.size();i++){
+        coverer[st[i].ind]+=m.order_of_key({st[i].f,1e9})-1;
     }
 }
 int main(){
@@ -91,9 +90,10 @@ int main(){
         int s,f; rv(s,f);
         st.pb({s,f,i});
     }
-    calcContainer();
+    calcContained();calcContainer();
     for (int i=0;i<N;i++) cout << coverer[i] << " ";
     cout << "\n";
     for (int i=0;i<N;i++) cout << cover[i] << " ";
     cout << "\n";
 }
+

@@ -1,6 +1,6 @@
 /*
-Problem: Nested Ranges Check
-Problem Link: https://cses.fi/problemset/task/2168
+Problem: 
+Problem Link: 
 Notes: 
 */
 #pragma GCC optimize("O2")
@@ -8,7 +8,7 @@ Notes:
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
 using namespace __gnu_pbds;
-typedef tree<int,null_type,less_equal<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef tree<int,null_type,less<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
 typedef long long ll;
 #define pb push_back
 #define eb emplace_back
@@ -53,47 +53,57 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-struct Range{
-    int s, f, ind;
-};
-bool sorts(Range &a, Range &b){
-    if (a.s==b.s) return (a.f>b.f);
-    return (a.s<b.s);
-}
-const int MN = 2e5;
-int N;
-vector<Range> st;
-indexed_set m;
-bool cover[MN],coverer[MN];
-void calcContainer(){
-    sort(st.begin(),st.end(),sorts);
-    multiset<pair<int,int>> m;
-    multiset<pair<int,int>> m2;
-    for (int i=0;i<st.size();i++){
-        auto itr = m.lower_bound({st[i].f,-1});
-        auto itr3 = m2.lower_bound({st[i].f,-1});
-        if (itr3!=m2.end()) cover[st[i].ind]=1;
-        if (itr!=m.end()){
-            auto itr2 = itr;
-            while (itr!=m.end()){
-                coverer[itr->second]=1;
-                itr++;
-            }
-            m.erase(itr2,itr);
+int T;
+string a, b, s;
+ll res;
+bool solve(){
+    int ind = a.size()-1;b="";
+    for (int i=s.size()-1;i>=0;i--){
+        if (ind<0 || i<0) return 0;
+        if ((s[i]-'0')>=(a[ind]-'0')){
+            if (ind<0 || i<0) return 0;
+            b=to_string((s[i]-'0')-(a[ind]-'0'))+b;ind--;
+        }else{
+            if (i>0){
+                if (ind<0 || i<0 || i-1<0) return 0;
+                int r = 10*(s[i-1]-'0')+(s[i]-'0')-(a[ind]-'0');
+                if (r>=10 || r<0) return 0;
+                b=to_string(r)+b;
+                i--;ind--;
+            }else return 0;
         }
-        m.insert({st[i].f,st[i].ind});
-        m2.insert({st[i].f,st[i].ind});
+    }
+    if (ind>=0) return 0;
+    return 1;
+}
+bool iterate(){
+    cin >> a >> s;b="";
+    for (int i=a.size();i<=s.size();i++){
+        bool r = solve();
+        if (r) return 1;
+        else a="0"+a;
+    }
+    return 0;
+}
+void convert(){
+    int ind = -1;
+    for (int i=0;i<b.size()-1;i++){
+        if (b[i]=='0') ind=i+1;
+        else break;
+    }
+    if (ind<0) return;
+    else{
+        b=b.substr(ind,b.size()-ind);
     }
 }
 int main(){
-	setIO();rv(N);
-    for (int i=0;i<N;i++){
-        int s,f; rv(s,f);
-        st.pb({s,f,i});
+	setIO();cin >> T;
+    while (T--){
+        bool r = iterate();
+        if (r){
+            convert();
+            cout << b << "\n";
+        }
+        else  cout << "-1\n";
     }
-    calcContainer();
-    for (int i=0;i<N;i++) cout << coverer[i] << " ";
-    cout << "\n";
-    for (int i=0;i<N;i++) cout << cover[i] << " ";
-    cout << "\n";
 }

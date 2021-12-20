@@ -1,6 +1,6 @@
 /*
-Problem: Nested Ranges Check
-Problem Link: https://cses.fi/problemset/task/2168
+Problem: 
+Problem Link: 
 Notes: 
 */
 #pragma GCC optimize("O2")
@@ -8,7 +8,7 @@ Notes:
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
 using namespace __gnu_pbds;
-typedef tree<int,null_type,less_equal<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef tree<int,null_type,less<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
 typedef long long ll;
 #define pb push_back
 #define eb emplace_back
@@ -53,47 +53,36 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-struct Range{
-    int s, f, ind;
-};
-bool sorts(Range &a, Range &b){
-    if (a.s==b.s) return (a.f>b.f);
-    return (a.s<b.s);
-}
 const int MN = 2e5;
-int N;
-vector<Range> st;
-indexed_set m;
-bool cover[MN],coverer[MN];
-void calcContainer(){
-    sort(st.begin(),st.end(),sorts);
-    multiset<pair<int,int>> m;
-    multiset<pair<int,int>> m2;
-    for (int i=0;i<st.size();i++){
-        auto itr = m.lower_bound({st[i].f,-1});
-        auto itr3 = m2.lower_bound({st[i].f,-1});
-        if (itr3!=m2.end()) cover[st[i].ind]=1;
-        if (itr!=m.end()){
-            auto itr2 = itr;
-            while (itr!=m.end()){
-                coverer[itr->second]=1;
-                itr++;
-            }
-            m.erase(itr2,itr);
+ll T,N, v[MN], p[MN+1],f[MN+1];
+void solve(){
+    rv(N);
+    for (int i=0;i<=N;i++) f[i]=0, p[i]=-1;
+    for (int i=0;i<N;i++) rv(v[i]), f[v[i]]++;
+    ll col = 0, mv = 0;
+    vector<int> pl;
+    for (int i=0;i<=N;i++){
+        if (col>=i){
+            p[i]=mv+f[i];
         }
-        m.insert({st[i].f,st[i].ind});
-        m2.insert({st[i].f,st[i].ind});
+        col+=f[i];
+        if (f[i]==0){
+            while (!pl.empty()){
+                if (f[pl[pl.size()-1]]<2) pl.pop_back();
+                else break;
+            }
+            if (pl.empty()) break;
+            int t = pl[pl.size()-1];
+            f[t]--;f[i]++;
+            mv+=(i-t);
+        }else if (f[i]>=2) pl.pb(i);
     }
+    for (int i=0;i<=N;i++) cout << p[i] << " ";
+    cout << "\n";
 }
 int main(){
-	setIO();rv(N);
-    for (int i=0;i<N;i++){
-        int s,f; rv(s,f);
-        st.pb({s,f,i});
+	setIO();rv(T);
+    while (T--){
+        solve();
     }
-    calcContainer();
-    for (int i=0;i<N;i++) cout << coverer[i] << " ";
-    cout << "\n";
-    for (int i=0;i<N;i++) cout << cover[i] << " ";
-    cout << "\n";
 }

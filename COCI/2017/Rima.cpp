@@ -63,17 +63,18 @@ int N,maxL = 0;
 string w[MN];
 Node s;
 int dfs(Node *curr){
-    int mv = curr->end;
+    int mv = curr->end,inc = 0,active = 0;
     for (int i=0;i<26;i++){
         if (curr->next[i]!=nullptr){
-            mv+=dfs(curr->next[i]);
+            int val = dfs(curr->next[i]);
+            inc=max(inc,val);
+            if (val>0) active++;
         }
     }
+    if (active>0) mv+=(inc+active-1);
     maxL=max(maxL,mv);
     if (curr->end==0) return 0;
-    else{
-        return mv;
-    }
+    else return mv;
 }
 void insertNodes(string& wr){
     Node* curr=&s;

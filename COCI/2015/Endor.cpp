@@ -1,6 +1,6 @@
 /*
-Problem: 
-Problem Link: 
+Problem: Endor
+Problem Link: https://dmoj.ca/problem/coci15c4p6
 Notes: 
 */
 #pragma GCC optimize("O2")

@@ -1,3 +1,6 @@
+Problem 1: all test cases
+Problem 2: 1 test case out of 23
+Problem 3: 1 test case out of 21
 15:Working on 1
 30:Working on 1
 45:Working on 2

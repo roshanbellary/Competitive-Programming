@@ -1,6 +1,6 @@
 /*
-Problem: 
-Problem Link: 
+Problem: Pizzeria Queries
+Problem Link: https://cses.fi/problemset/task/2206
 Notes: 
 */
 #pragma GCC optimize("O2")

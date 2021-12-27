@@ -1,0 +1,20 @@
+15:Working on Problem 2
+30:Working on Problem 2
+45:Working on Problem 1
+60:Working on Problem 1
+75:Working on Problem 2
+90:Working on Problem 2
+105:Working on Problem 2
+120:Working on Problem 2
+135:Working on Problem 2
+150:Finished Problem 2
+165:Working on Problem 3
+180:Working on Problem 3
+195:Working on Problem 1
+210:Working on Problem 3
+225:Working on Problem 3
+240:Working on Problem 1
+
+Problem 1: 0 test cases
+Problem 2: All test cases
+Problem 3: 10 test cases

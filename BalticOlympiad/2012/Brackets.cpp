@@ -1,6 +1,6 @@
 /*
-Problem: 
-Problem Link: 
+Problem: Brackets
+Problem Link: https://cses.fi/98/list/
 Notes: 
 */
 #pragma GCC optimize("O2")

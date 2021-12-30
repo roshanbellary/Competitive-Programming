@@ -1,6 +1,6 @@
 /*
-Problem: 
-Problem Link: 
+Problem: Sirni
+Problem Link: https://oj.uz/problem/view/COCI17_sirni
 Notes: 
 */
 #pragma GCC optimize("O2")

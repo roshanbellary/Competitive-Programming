@@ -82,7 +82,7 @@ int main(){
      for (int i=0;i<tot;i++) id[d[i].x]=d[i].i;
      for (int i=2;i<N-1;i++) if (a[i]+b[i]>len && (((a[i]+b[i]-len)&1) || !id[a[i]-(a[i]+b[i]-len)/2])){ cout << "NIE\n"; return 0; }
      cout << "TAK\n";
-     for (int i=1;i<tot;i++) printf("%d %d %d\n",d[i-1].i,d[i].i,d[i].x-d[i-1].x);
-     for (int i=2;i<N-1;i++) if (a[i]+b[i]>len) printf("%d %d %d\n",id[a[i]-(a[i]+b[i]-len)/2],i,(a[i]+b[i]-len)/2);
+     for (int i=1;i<tot;i++) cout << d[i-1].i << " " << d[i].i << " " << d[i].x-d[i-1].x << "\n";
+     for (int i=2;i<N-1;i++) if (a[i]+b[i]>len) cout << (id[a[i]-(a[i]+b[i]-len)/2]) << " " << i << " " << (a[i]+b[i]-len)/2 << "\n";
      return 0;
 }

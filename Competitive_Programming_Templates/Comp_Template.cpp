@@ -43,7 +43,7 @@ inline void rv(float &n){
 inline void rv(string &w){w="";char c=getchar();while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}}
 inline void rv(char &c){c=getchar();}
 template<typename T, typename ...Types>
-void rv(T &n, Types&&... args){rv(n);rv(args...);}
+inline void rv(T &n, Types&&... args){rv(n);rv(args...);}
 void setIO(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);

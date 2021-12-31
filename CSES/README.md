@@ -3,7 +3,7 @@ Solutions to the CSES problems on https://cses.fi/. Grouped by Category and Name
 
 - [x] Introductory Problems
 - [x] Sorting and Searching
-- [ ] Dynamic Programming
+- [x] Dynamic Programming
 - [ ] Graph Algorithms
 - [ ] Range Queries
 - [ ] Tree Algorithms

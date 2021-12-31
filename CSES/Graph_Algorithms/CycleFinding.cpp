@@ -1,7 +1,7 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: Cycle Finding
+Problem Link: https://cses.fi/problemset/task/1197/
+Notes: Floyd Warshall Alg p much
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
@@ -69,47 +69,42 @@ void setIO(string f){
 struct Edge{
     ll a, b, c;
 };
-ll N, M, d[2500];
+ll N, M, d[2500], ch[2500];
 vector<Edge> l;
 vector<pair<ll,ll>> li[2500];
-stack<int> ind;
-bool cyc = 0, fo = 0,vi[2500];
-vector<int> res;
-void dfs(int i, ll dist){
-    if (fo) return;
-    if (!vi[i]) vi[i]=1,d[i]=dist,ind.push(i);
-    else if (dist<d[i]){
-        fo = 1;res.pb(i);
-        while (!ind.empty()){
-            res.pb(ind.top());
-            if (ind.top()==i) break;
-            ind.pop();
-        }
-        return;
-    }else{
-        return;
-    }
-    for (auto &e:li[i]){
-        if (fo) return;
-        dfs(e.f,dist+e.s);
-    }
-    ind.pop();
+vector<int> ind;set<int> nodes;
+bool cyc = 0;
+int fo = 0;
+void dfs(int i){
+    ind.pb(i);nodes.insert(i);
+    i=ch[i];
+    if (nodes.find(i)!=nodes.end()){ind.pb(i);return;}
+    else dfs(i);
 }
 int main(){
-	setIO();rv(N, M);
+	setIO();rv(N, M);for (int i=0;i<N;i++) d[i]=0;
     for (ll i=0;i<M;i++){
         ll a, b, c; rv(a,b,c);a--;b--;
-        l.pb({a,b,c});
+        l.pb({a,b,c});ch[a]=a;
         li[a].pb({b,c});
     }
-    memset(d,0,sizeof(d));
-    ll st = N-1, v = -1;
-    while (st--) for (auto &a:l) d[a.b]=min(d[a.a]+a.c,d[a.c]);
-    for (auto &a:l) if (d[a.b]>d[a.a]+a.c){cyc = 1,v=a.b;break;}
+    ll st = N-1;fo=-1;
+    while (st--){
+        for (auto &a:l){
+            if (d[a.b]>d[a.a]+a.c){
+                ch[a.b]=a.a;d[a.b]=d[a.a]+a.c;
+            }
+        }
+    }
+    for (auto &a:l) if (d[a.b]>d[a.a]+a.c){
+        ch[a.b]=a.a;d[a.b]=d[a.a]+a.c;fo=a.b;cyc=1;break;
+    }
     if (!cyc){cout << "NO\n";return 0;}
-    for (int i=0;i<N;i++) d[i]=0;
     cout << "YES\n";
-    dfs(v,0);reverse(res.begin(),res.end());
-    for (int j:res) cout << j+1 << " ";
+    dfs(fo);cout << ind.back()+1 << " ";
+    for (int i=ind.size()-2;i>=0;i--){
+         cout << ind[i]+1 << " ";
+        if (ind[i]==ind.back()) break;
+    }
     cout << "\n";
 }

@@ -1,7 +1,7 @@
 /*
-Problem: 
-Problem Link: 
-Notes: 
+Problem: Milking Order
+Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=838
+Notes: DAG with priority queue to make a lexographically small topo sort
 */
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>

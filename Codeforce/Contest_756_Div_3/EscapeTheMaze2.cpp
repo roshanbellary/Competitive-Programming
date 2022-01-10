@@ -66,34 +66,39 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-int T, N, K, x[(int)2e5], dy[(int)2e5],df[(int)2e5], lcd[(int)2e5][19];
-vector<int> l[(int)2e5];
-void dfs(int ind, int d){dy[ind]=d++;for (int j:l[ind]) dfs(j,d), lcd[j][0]=ind;}
-void mlca(){for (int j=0;j<log(N);j++) for (int i=0;i<N;i++) lcd[i][j+1]=lcd[lcd[i][j]][j];}
-int lca(int i, int j){
-    if (dy[i]<dy[j]) swap(i,j);
-    int diff = dy[j]-dy[i];
-    for (int k=0;k<=log2(N);k++) if (diff&(1<<k)) j=lcd[j][k];
-    if (i==j) return i;
-    for (int k=log2(N)-1;k>=0;k--){
-        if (lcd[i][k]!=lcd[j][k]) i=lcd[i][k],j=lcd[j][k];
+const int MN = 2e5;
+int T, N, K, r[MN], d[MN], num = 0;
+vector<int> l[MN];
+queue<pair<int,int>> q;
+bool esc = 0;
+void dfs(int i, int p, int dist){
+    if (dist>=d[i]){num++;return;}
+    else if (l[i].size()==1 && i!=0){esc=1;return;}
+    int dist2=dist+1;
+    for (int& j:l[i]){
+        if (j==p) continue;
+        dfs(j,p,dist2);
     }
-    return lcd[i][0];
 }
 void solve(){
-    for (int i=0;i<K;i++) cin >> x[i],x[i]--;
-    for (int i=0;i<N-1;i++){
-        int u, v; cin >> u >> v;u--;v--;
-        l[u].pb(v);l[v].pb(u);
+    cin >> N >> K;esc=0,num=0;
+    for (int i=0;i<K;++i) cin >> r[i], r[i]--;
+    for (int i=0;i<N;++i) l[i].clear(), d[i]=1e9;
+    for (int i=0;i<N-1;++i){
+        int u, v; cin >> u >> v;l[--u].eb(--v);l[v].eb(u);
     }
-    dfs(0,0);mlca();
+    for (int i=0;i<K;++i) d[r[i]]=0, q.push({r[i],0});
+    while (!q.empty()){
+        auto a = q.front();q.pop();
+        if (d[a.f]<a.s) continue;
+        for (int& j:l[a.f]){
+            if (d[j]>a.s+1) d[j]=a.s+1, q.push({j,d[j]});
+        }
+    }
+    dfs(0,0,0);
+    if (esc) cout << "-1\n";
+    else cout << num << "\n";
 }
 int main(){
-	setIO();cin >> T;
-    while (T--){
-        cin >> N >> K;
-        for (int i=0;i<N;i++) l[i].clear(),dy[i]=1e9,df[i]=1e9;
-        for (int i=0;i<N;i++) for (int j=0;j<=log2(N)+1;j++) lcd[i][j]=i;
-        solve();
-    }
+    cin >> T;while (T--) solve();
 }

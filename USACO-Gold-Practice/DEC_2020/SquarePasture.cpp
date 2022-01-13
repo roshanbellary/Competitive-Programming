@@ -85,7 +85,6 @@ void solve() {
 		}
 	}
 }
- 
 int main() {
 	cin >> N; cows.resize(N); 
 	for (pi& cow: cows) cin >> cow.f >> cow.s;

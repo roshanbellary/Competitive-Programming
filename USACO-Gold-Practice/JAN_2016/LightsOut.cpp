@@ -1,6 +1,6 @@
 /*
-Problem: 
-Problem Link: 
+Problem: Lights Out
+Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=599
 Notes: 
 */
 #pragma GCC optimize("O2")

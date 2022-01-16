@@ -1,73 +1,104 @@
+/*
+Problem: At Large
+Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=790
+Notes: BFS Sol
+*/
+#pragma GCC optimize("O2")
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
-int N, K;
-vector<vector<int>> l;
-int main(){
-    freopen("atlarge.in","r",stdin);
-    freopen("atlarge.out","w",stdout);
+using namespace __gnu_pbds;
+typedef tree<int,null_type,less<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef long long ll;
+#define pb push_back
+#define eb emplace_back
+#define countbits __builtin_popcount
+#define beg0 __builtin_clz
+#define terminal0 __builtin_ctz
+#define f first
+#define s second
+int mod=1e9+7;
+inline void rv(int &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(ll &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(double &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(float &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(string &w){w="";char c=getchar();while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}}
+inline void rv(char &c){c=getchar();}
+template<typename T, typename ...Types>
+inline void rv(T &n, Types&&... args){rv(n);rv(args...);}
+void setIO(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    cin >> N >> K; K--;
-    for (int i=0;i<N;i++) l.push_back(vector<int>());
+}
+void setIO(string f){
+	freopen((f+".in").c_str(),"r",stdin);
+	freopen((f+".out").c_str(),"w",stdout);
+	setIO();
+}
+const int MN = 1e5;
+int N, K, d[MN], df[MN], res=0;
+bool w = 1;
+vector<int> l[MN];
+queue<pair<int,int>> q;
+void dfs(int i, int p){
+    if (d[i]>=df[i]){res++; return;}
+    else if (d[i]<df[i] && i!=K && l[i].size()==1) w=0;
+    for (int& j:l[i]){
+        if (j==p) continue;
+        dfs(j,i);
+    }
+}
+int main(){
+	setIO("atlarge");rv(N, K);K--;
+    for (int i=0;i<N;i++) d[i]=df[i]=1e9;
     for (int i=0;i<N-1;i++){
-        int s,f;
-        cin >> s >> f; s--;f--;
-        l[s].push_back(f);
-        l[f].push_back(s);
+        int u, v; rv(u,v);
+        l[--u].eb(--v);
+        l[v].eb(u);
     }
-    vector<int> dk(N,-1);
-    queue<int> q;
-    dk[K]=0;
-    q.push(K);
+    d[K]=0;q.push({K,0});
     while (!q.empty()){
-        int i = q.front();
-        q.pop();
-        for (int a:l[i]){
-            if (dk[a]<0){
-                dk[a]=dk[i]+1;
-                q.push(a);
+        auto a = q.front();q.pop();
+        if (d[a.f]<a.s) continue;
+        for (int& j:l[a.f]){
+            if (d[j]>a.s+1){
+                d[j]=a.s+1;
+                q.push({j,d[j]});
             }
         }
     }
-    vector<int> ones;
     for (int i=0;i<N;i++){
-        if (l[i].size()==1) ones.push_back(i);
+        if (l[i].size()==1 && i!=K){
+            df[i]=0;q.push({i,0});
+        }
     }
-    vector<bool> v(N,false);
-    vector<int> de(N,-1);
-    queue<int> q2;
-    for (int i=0;i<ones.size();i++){
-        de[ones[i]]=0;
-        q2.push(ones[i]);
-    }
-    while (!q2.empty()){
-        int i = q2.front();
-        q2.pop();
-        for (int j:l[i]){
-            if (de[j]<0){
-                de[j]=de[i]+1;
-                q2.push(j);
-            }else if (de[j]>de[i]+1){
-                de[j]=de[i]+1;
+    while (!q.empty()){
+        auto a = q.front();q.pop();
+        if (df[a.f]<a.s) continue;
+        for (int& j:l[a.f]){
+            if (df[j]>a.s+1){
+                df[j]=a.s+1;
+                q.push({j,df[j]});
             }
         }
     }
-    int count = 0;
-    queue<int> q3;
-    q3.push(K);
-    vector<bool> v2(N,false);
-    while (!q3.empty()){
-        int i = q3.front();
-        q3.pop();
-        if (v2[i]) continue;
-        else v2[i]=true;
-        for (int j:l[i]){
-            if (dk[j]<=de[j]){
-                q3.push(j);
-            }else{
-                count++;
-            }
-        }
-    }
-    cout << count << "\n";
+    dfs(K,K);cout << (w?res:(-1)) << "\n";
 }

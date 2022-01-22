@@ -1,6 +1,6 @@
 /*
-Problem: 
-Problem Link: 
+Problem: GCD Arrays
+Problem Link: https://codeforces.com/contest/1629/problem/B
 Notes: 
 */
 #pragma GCC optimize("O2")

@@ -41,7 +41,7 @@ inline void rv(float &n){
     n*=m;
 }
 inline void rv(string &w){w="";char c=getchar();while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}}
-inline void rv(char &c){c=getchar();}
+inline void rv(char &c){c=' ';while (c==' '|| c=='\n' || c==EOF) c=getchar();}
 template<typename T, typename ...Types>
 inline void rv(T &n, Types&&... args){rv(n);rv(args...);}
 void setIO(){

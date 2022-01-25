@@ -1,51 +1,82 @@
+/*
+Problem: Balanced Cow Breeds
+Problem Link: http://usaco.org/index.php?page=viewproblem2&cpid=192
+Notes: 
+*/
+#pragma GCC optimize("O2")
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
+using namespace __gnu_pbds;
+typedef tree<int,null_type,less<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef long long ll;
+#define pb push_back
+#define eb emplace_back
+#define countbits __builtin_popcount
+#define beg0 __builtin_clz
+#define terminal0 __builtin_ctz
+#define f first
+#define s second
+int mod=2012;
+inline void rv(int &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(ll &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(double &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(float &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(string &w){w="";char c=getchar();while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}}
+inline void rv(char &c){c=' ';while (c==' '|| c=='\n' || c==EOF) c=getchar();}
+template<typename T, typename ...Types>
+inline void rv(T &n, Types&&... args){rv(n);rv(args...);}
+void setIO(){
+    ios::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+}
+void setIO(string f){
+	freopen((f+".in").c_str(),"r",stdin);
+	freopen((f+".out").c_str(),"w",stdout);
+	setIO();
+}
+const int MN = 1001;
+string S;
+int p[MN], dp[MN][MN];
 int main(){
-	freopen("bbreeds.in","r",stdin);
-	freopen("bbreeds.out","w",stdout);
-	ios::sync_with_stdio(0);
-	cin.tie(0);cout.tie(0);
-	string s; cin >> s; int N = s.length();
-	int dp[N][N+1][N+1];
-	memset(dp,0,sizeof(dp));
-	int c[2][N]; memset(c,0,sizeof(c));
-	for (int i=0;i<N;i++){
-		if (i==0){
-			if (s[i]=='(') c[0][0]++;
-			else c[1][0]++;
-		}else{
-			if (s[i]=='(') c[0][i]+=(c[0][i-1]+1), c[1][i]=c[1][i-1];
-			else c[1][i]+=(c[1][i-1]+1),c[0][i]=c[0][i-1];
-		}
-	}
-	if (s[0]=='('){
-		dp[0][1][0]=1;
-		dp[0][0][0]=1;
-	}
-	for (int i=1;i<N;i++){// iterate over position
-		for (int j=0;j<=c[0][i];j++){//iterates over all possible # of forward ( that are associated with Holstein's
-			for (int k=0;k<=c[1][i];k++){//iterates over all possible # of backward ( that are associated with Holstein's
-				if (k>j) continue;
-				if (c[0][i]-j<c[1][i]-k) continue;
-				if (s[i]=='('){
-					if (j>0) dp[i][j][k]+=dp[i-1][j-1][k];
-					dp[i][j][k]+=dp[i-1][j][k];
-				}else{
-					if (k>0) dp[i][j][k]+=dp[i-1][j][k-1];
-					dp[i][j][k]+=dp[i-1][j][k];
-				}
-				dp[i][j][k]%=2012;
-			}
-		}
-	}
-	int counts = 0;
-	for (int i=0;i<=c[0][N-1];i++){
-		for (int j=0;j<=c[1][N-1];j++){
-			if (i!=j) continue;
-			if (c[0][N-1]-i!=c[1][N-1]-j) continue;
-			counts+=dp[N-1][i][j];
-			counts%=2012;
-		}
-	}
-	cout << counts%2012 << "\n";
+	setIO("bbreeds");rv(S);
+    for (int i=0;i<S.length();i++){
+        if (S[i]==')'){
+            if (i) p[i]=p[i-1]-1;
+            else p[i]=-1;
+        }else{
+            if (i) p[i]=p[i-1]+1;
+            else p[i]=1;
+        }
+    }
+    if (S[0]=='(') dp[0][1]=1;dp[0][0]=1;
+    for (int i=1;i<S.length();i++){
+        for (int j=0;j<=1000;j++) if (p[i]-j>=0 && j>=0) (dp[i][j]+=dp[i-1][j])%=mod;
+        if (S[i]==')'){
+            for (int j=1;j<=1000;j++){
+                if (p[i]-(j-1)>=0 && j>=1) (dp[i][j-1]+=dp[i-1][j])%=mod;
+            }
+        }else{
+            for (int j=0;j<1000;j++) if (p[i]-(j+1)>=0) (dp[i][j+1]+=dp[i-1][j])%=mod;
+        }
+    }
+    cout << dp[S.length()-1][0] << "\n";
 }

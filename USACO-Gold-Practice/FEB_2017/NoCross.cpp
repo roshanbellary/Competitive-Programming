@@ -1,69 +1,72 @@
+/*
+Problem: 
+Problem Link: 
+Notes: 
+*/
+#pragma GCC optimize("O2")
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
-int N;
-int main(){
-    freopen("nocross.in","r",stdin);
-    freopen("nocross.out","w",stdout);
+using namespace __gnu_pbds;
+typedef tree<int,null_type,less<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef long long ll;
+#define pb push_back
+#define eb emplace_back
+#define countbits __builtin_popcount
+#define beg0 __builtin_clz
+#define terminal0 __builtin_ctz
+#define f first
+#define s second
+int mod=1e9+7;
+inline void rv(int &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(ll &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(double &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(float &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(string &w){w="";char c=getchar();while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}}
+inline void rv(char &c){c=' ';while (c==' '|| c=='\n' || c==EOF) c=getchar();}
+template<typename T, typename ...Types>
+inline void rv(T &n, Types&&... args){rv(n);rv(args...);}
+void setIO(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    cin >> N;
-    vector<int> l(N);
-    vector<int> r(N);
-    for (int i=0;i<N;i++){
-        cin >> l[i];
-    }
-    for (int i=0;i<N;i++){
-        cin >> r[i];
-    }
-    vector<vector<vector<int>>> dp(N+1,vector<vector<int>>(N+1,vector<int>(4,0)));
-    if (abs(l[0]-r[0])<4) dp[1][1][3]=1;
-    for (int i=2;i<=N;i++){
-       dp[i][1][0]=max(dp[i-1][1][0],dp[i-1][1][1]);
-       int maxi = 0;
-       dp[i][1][1]=0;
-       for (int j=1;j<i;j++){
-           if (abs(l[j-1]-r[0])<=4){dp[i][1][2]++; break;}
-       }
-       if (abs(l[i-1]-r[0])<=4) dp[i][1][3]++;
-    }
-    for (int i=2;i<=N;i++){
-       dp[1][i][0]=max(dp[1][i-1][2],dp[1][i-1][3]);
-       int maxi = 0;
-       dp[1][i][1]=0;
-       for (int j=1;j<i;j++){
-           if (abs(r[j-1]-l[0])<=4){dp[1][i][2]++; break;}
-       }
-       if (abs(r[i-1]-l[0])<=4) dp[1][i][3]++;
-    }
-    for (int i=2;i<=N;i++){
-        for (int j=2;j<=N;j++){
-            dp[i][j][0]=max(max(dp[i-1][j][0],dp[i-1][j][1]),max(dp[i][j-1][0],dp[i][j-1][2]));
-            int maxi = -1;
-            bool e = false;
-            for (int k=1;k<j;k++){
-                if (abs(r[k-1]-l[i-1])<=4){
-                    e=true;
-                    maxi=max(max(dp[i][k][0]+1,dp[i][k][1]),maxi);
-                }
-            }
-            dp[i][j][1]=maxi;
-            maxi = -1;
-            bool e2 = false;
-            for (int k=1;k<i;k++){
-                if (abs(l[k-1]-r[j-1])<=4){
-                    e2=true;
-                    maxi=max(max(dp[k][j][0]+1,dp[k][j][2]),maxi);
-                }
-            }
-            dp[i][j][2]=maxi;
-            if (e&&e2) dp[i][j][3]+=2;
-            else if (e||e2) dp[i][j][3]++;
-            else if (abs(l[i-1]-r[j-1])<=4) dp[i][j][3]++;
+}
+void setIO(string f){
+	freopen((f+".in").c_str(),"r",stdin);
+	freopen((f+".out").c_str(),"w",stdout);
+	setIO();
+}
+const int MN = 1e3;
+int N, br[MN][2], dp[MN][MN],g[MN][MN];
+int main(){
+	setIO("nocross");rv(N);
+    for (int i=0;i<N;i++) rv(br[i][0]);
+    for (int i=0;i<N;i++) rv(br[i][1]);
+    for (int i=0;i<N;i++) for (int j=0;j<N;j++) if (abs(br[i][0]-br[j][1])<=4) g[i][j]=1;
+    for (int i=N-1;i>=0;i--){
+        for (int j=N-1;j>=0;j--){
+            dp[i][j]=g[i][j];
+            if (i<N-1) dp[i][j]=max(dp[i+1][j],dp[i][j]);
+            if (j<N-1) dp[i][j]=max(dp[i][j+1],dp[i][j]);
+            if (i<N-1 && j<N-1) dp[i][j]=max(dp[i+1][j+1]+g[i][j],dp[i][j]);
         }
     }
-    int totmax = 0;
-    for (int i=0;i<4;i++){
-        totmax=max(totmax,dp[N][N][i]);
-    }
-    cout << totmax << "\n";
+    cout << dp[0][0] << "\n";
 }

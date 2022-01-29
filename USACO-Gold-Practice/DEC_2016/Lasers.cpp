@@ -137,6 +137,6 @@ int main(){
         }
     }
     int mv = 1e9;
-    for (int i=0;i<4;i++) if (dp[1][i]) mv=min(mv,dp[1][i]);
+    for (int i=0;i<4;i++) mv=min(mv,dp[1][i]);
     cout << (mv==1e9?-1:mv) << "\n";
 }

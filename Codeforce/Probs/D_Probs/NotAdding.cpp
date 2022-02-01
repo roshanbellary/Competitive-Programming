@@ -1,6 +1,6 @@
 /*
-Problem: 
-Problem Link: 
+Problem: Not Adding
+Problem Link: https://codeforces.com/contest/1627/problem/D
 Notes: 
 */
 #pragma GCC optimize("O2")

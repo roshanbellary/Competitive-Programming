@@ -21,8 +21,8 @@ typedef long long ll;
 #define countbits __builtin_popcount
 #define beg0 __builtin_clz
 #define terminal0 __builtin_ctz
-#define f first
-#define s second
+#define x first
+#define y second
 int mod=1e9+7;
 inline void rv(int &n){
     n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}

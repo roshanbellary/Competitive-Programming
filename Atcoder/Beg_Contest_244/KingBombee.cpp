@@ -5,8 +5,8 @@
 ██╔══██╗██║░░██║██╔══██╗██╔══╝░░██║░░░░░██║░░░░░
 ██║░░██║╚█████╔╝██████╦╝███████╗███████╗███████╗
 ╚═╝░░╚═╝░╚════╝░╚═════╝░╚══════╝╚══════╝╚══════╝
-Problem: 
-Problem Link: 
+Problem: King Bombee
+Problem Link: https://atcoder.jp/contests/abc244/tasks/abc244_e
 Notes: 
 */
 #pragma GCC optimize("O2")

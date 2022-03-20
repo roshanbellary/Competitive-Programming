@@ -5,8 +5,8 @@
 ██╔══██╗██║░░██║██╔══██╗██╔══╝░░██║░░░░░██║░░░░░
 ██║░░██║╚█████╔╝██████╦╝███████╗███████╗███████╗
 ╚═╝░░╚═╝░╚════╝░╚═════╝░╚══════╝╚══════╝╚══════╝
-Problem: 
-Problem Link: 
+Problem: Shortest Good Path
+Problem Link: https://atcoder.jp/contests/abc244/tasks/abc244_f
 Notes: 
 */
 #pragma GCC optimize("O2")

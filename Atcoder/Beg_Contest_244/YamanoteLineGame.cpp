@@ -5,8 +5,8 @@
 ██╔══██╗██║░░██║██╔══██╗██╔══╝░░██║░░░░░██║░░░░░
 ██║░░██║╚█████╔╝██████╦╝███████╗███████╗███████╗
 ╚═╝░░╚═╝░╚════╝░╚═════╝░╚══════╝╚══════╝╚══════╝
-Problem: 
-Problem Link: 
+Problem: Yamanote Line Game
+Problem Link: https://atcoder.jp/contests/abc244/tasks/abc244_c
 Notes: 
 */
 #pragma GCC optimize("O2")

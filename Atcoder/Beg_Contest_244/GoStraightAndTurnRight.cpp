@@ -5,8 +5,8 @@
 ██╔══██╗██║░░██║██╔══██╗██╔══╝░░██║░░░░░██║░░░░░
 ██║░░██║╚█████╔╝██████╦╝███████╗███████╗███████╗
 ╚═╝░░╚═╝░╚════╝░╚═════╝░╚══════╝╚══════╝╚══════╝
-Problem: 
-Problem Link: 
+Problem: Go Straight and Turn Right
+Problem Link: https://atcoder.jp/contests/abc244/tasks/abc244_b
 Notes: 
 */
 #pragma GCC optimize("O2")

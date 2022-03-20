@@ -5,8 +5,8 @@
 ██╔══██╗██║░░██║██╔══██╗██╔══╝░░██║░░░░░██║░░░░░
 ██║░░██║╚█████╔╝██████╦╝███████╗███████╗███████╗
 ╚═╝░░╚═╝░╚════╝░╚═════╝░╚══════╝╚══════╝╚══════╝
-Problem: 
-Problem Link: 
+Problem: Last Letter
+Problem Link: https://atcoder.jp/contests/abc244/tasks/abc244_a
 Notes: 
 */
 #pragma GCC optimize("O2")

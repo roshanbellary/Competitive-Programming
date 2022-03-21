@@ -59,20 +59,31 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-const int MN = 2e5;
-ll N, P, a[MN], res = 0;
+const int MN = 2e5+1;
+ll N, P, a[MN], dp[MN], res = 0;
+set<int> v;
+vector<int> b;
 int main(){
 	setIO();rv(N, P);
-    for (int i=0;i<N;i++) rv(a[i]);
+    for (int i=0;i<N;i++) rv(a[i]), v.insert(a[i]);
+    sort(a,a+N);
     for (int i=0;i<N;i++){
-        for (int j=30;j>=0;j--){
-            if ((a[i]&(1<<j))){
-                ll r = P-j-1;
-                if (r%2==0) (res+=((r/2)*(r/2+2)+1))%=mod, cout << "hi1\n";
-                else (res+=((r/2+2)*(r/2+1))/2)%=mod, cout << "hi2\n";
-                break;
-            }
+        int curr = a[i];bool w=1;
+        vector<int> seq={curr};
+        while (curr>1){
+            if (curr%4==0) seq.eb(curr/4), curr/=4;
+            else if (curr%2==1) seq.eb((curr-1)/2), curr=(curr-1)/2;
+            else break;
         }
+        for (int i=1;i<seq.size();i++) if (v.find(seq[i])!=v.end()) w=0;
+        if (w) b.eb(a[i]);
     }
-    cout << res << "\n";
+    for (int& j:b){int k = log2(j)+1;dp[k]++;}
+    for (int i=0;i<=P-1;i++){
+        if (i<=P-2) (dp[i+2]+=dp[i])%=mod;
+        if (i<=P-1) (dp[i+1]+=dp[i])%=mod;
+    }
+    ll res = 0;
+    for (int i=0;i<=P;i++) (res+=dp[i])%=mod;
+    cout << res%mod << "\n";
 }

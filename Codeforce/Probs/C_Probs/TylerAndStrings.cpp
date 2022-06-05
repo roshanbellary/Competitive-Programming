@@ -1,0 +1,86 @@
+/*
+██████╗░░█████╗░██████╗░███████╗██╗░░░░░██╗░░░░░
+██╔══██╗██╔══██╗██╔══██╗██╔════╝██║░░░░░██║░░░░░
+██████╔╝██║░░██║██████╦╝█████╗░░██║░░░░░██║░░░░░
+██╔══██╗██║░░██║██╔══██╗██╔══╝░░██║░░░░░██║░░░░░
+██║░░██║╚█████╔╝██████╦╝███████╗███████╗███████╗
+╚═╝░░╚═╝░╚════╝░╚═════╝░╚══════╝╚══════╝╚══════╝
+Problem: 
+Problem Link: 
+Notes: 
+*/
+#pragma GCC optimize("O2")
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+typedef tree<int,null_type,less<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+typedef long long ll;
+#define pb push_back
+#define eb emplace_back
+#define countbits __builtin_popcount
+#define beg0 __builtin_clz
+#define terminal0 __builtin_ctz
+#define x first
+#define y second
+int mod=998244353;
+inline void rv(int &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(ll &n){
+    n=0;int m=1;char c=getchar();if (c=='-'){m=-1; c=getchar();}
+    for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    n*=m;
+}
+inline void rv(double &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(float &n){
+    n=0;int m=1;char c=getchar();
+    if (c=='-'){m=-1; c=getchar();}for (;c>47 && c<58;c=getchar()){n=n*(1<<1)+n*(1<<3)+c-48;}
+    if (c=='.'){double p = 0.1;c=getchar();for (;c>47 && c<58;c=getchar()){n+=((c-48)*p);p/=10;}}
+    n*=m;
+}
+inline void rv(string &w){w="";char c=getchar();while (c!=' '&&c!='\n'&&c!=EOF){w+=c;c=getchar();}}
+inline void rv(char &c){c=' ';while (c==' '|| c=='\n' || c==EOF) c=getchar();}
+template<typename T, typename ...Types>
+inline void rv(T &n, Types&&... args){rv(n);rv(args...);}
+void setIO(){
+    ios::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+}
+void setIO(string f){
+	freopen((f+".in").c_str(),"r",stdin);
+	freopen((f+".out").c_str(),"w",stdout);
+	setIO();
+}
+const int MN = 2e5+1;
+int N, M, ft[MN], s[MN], t[MN];
+ll fact[MN], res=0;
+int query(int i){return (i?ft[i]+query(i-(i&(-i))):0);}
+void update(int i, int v){
+    while (i<MN){
+        ft[i]+=v;i+=(i&(-i));
+    }
+}
+int main(){
+	setIO();rv(N, M);
+    for (int i=0;i<N;i++) rv(s[i]), update(s[i],1);
+    for (int i=0;i<M;i++) rv(t[i]);
+    fact[0]=fact[1]=1;for (int i=2;i<MN;i++) (fact[i]*=fact[i-1])%=mod;
+    for (int i=0;i<min(N,M);i++){
+        ll num = query(t[i]-1);
+        cout << t[0] << " " << num << "\n";
+        (res+=(num*fact[N-i-1])%mod)%=mod;
+        num=query(t[i])-query(t[i]-1);
+        if (num==0) break;
+        update(t[i],-1);
+    }
+    
+    cout << res << "\n";
+}

@@ -59,7 +59,8 @@ void setIO(string f){
 	freopen((f+".out").c_str(),"w",stdout);
 	setIO();
 }
-int N, Q;
+const int MN = 2e5;
+int N, Q, ft[MN+1];
 int main(){
 	setIO();rv(N, Q);
     
